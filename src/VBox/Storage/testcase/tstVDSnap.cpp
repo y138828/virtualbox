@@ -126,7 +126,7 @@ static void tstVDSnapSegmentsDice(PVDSNAPTEST pTest, PVDDISKSEG paDiskSeg, uint3
 
 static int tstVDSnapWrite(PVDISK pVD, PVDDISKSEG paDiskSegments, uint32_t cDiskSegments, uint64_t cbDisk, bool fInit)
 {
-    RT_NOREF1(cbDisk);
+    RT_NOREF(cbDisk);
     int rc = VINF_SUCCESS;
 
     for (uint32_t i = 0; i < cDiskSegments; i++)
@@ -153,7 +153,7 @@ static int tstVDSnapWrite(PVDISK pVD, PVDDISKSEG paDiskSegments, uint32_t cDiskS
 
 static int tstVDSnapReadVerify(PVDISK pVD, PVDDISKSEG paDiskSegments, uint32_t cDiskSegments, uint64_t cbDisk)
 {
-    RT_NOREF1(cbDisk);
+    RT_NOREF(cbDisk);
     int rc = VINF_SUCCESS;
     uint8_t *pbBuf = (uint8_t *)RTMemAlloc(_1M);
 

@@ -294,7 +294,7 @@ static int usbfilterValidateStringPattern(const char *psz)
      * This is only becomes important if we start doing
      * sets ([0-9]) and such like.
      */
-    RT_NOREF1(psz);
+    RT_NOREF(psz);
     return VINF_SUCCESS;
 }
 

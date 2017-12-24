@@ -146,7 +146,7 @@ static int vboxClientXLibErrorHandler(Display *pDisplay, XErrorEvent *pError)
  */
 static int vboxClientXLibIOErrorHandler(Display *pDisplay)
 {
-    RT_NOREF1(pDisplay);
+    RT_NOREF(pDisplay);
     LogRel(("VBoxClient: a fatal guest X Window error occurred.  This may just mean that the Window system was shut down while the client was still running.\n"));
     VBClCleanUp();
     return 0;  /* We should never reach this. */

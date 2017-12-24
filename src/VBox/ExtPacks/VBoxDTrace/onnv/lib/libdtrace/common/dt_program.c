@@ -90,7 +90,7 @@ dtrace_program_info(dtrace_hdl_t *dtp, dtrace_prog_t *pgp,
 	dt_stmt_t *stp;
 	dtrace_actdesc_t *ap;
 	dtrace_ecbdesc_t *last = NULL;
-	RT_NOREF1(dtp);
+	RT_NOREF(dtp);
 
 	if (pip == NULL)
 		return;
@@ -409,7 +409,7 @@ dt_header_decl(dt_idhash_t *dhp, dt_ident_t *idp, void *data)
 	char *fname;
 	const char *p;
 	int i;
-	RT_NOREF1(dhp);
+	RT_NOREF(dhp);
 
 	p = prp->pr_name;
 	for (i = 0; (p = strchr(p, '-')) != NULL; i++)

@@ -403,7 +403,7 @@ static void generateRandomSegments(PRNDCTX pCtx, PSEGMENT pSegment, uint32_t nSe
 
 static void mergeSegments(PSEGMENT pBaseSegment, PSEGMENT pDiffSegment, PSEGMENT pMergeSegment, uint32_t u32MaxLength)
 {
-    RT_NOREF1(u32MaxLength);
+    RT_NOREF(u32MaxLength);
 
     while (pBaseSegment->u32Length > 0 || pDiffSegment->u32Length > 0)
     {

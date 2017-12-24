@@ -77,7 +77,7 @@
 
 int suplibOsInit(PSUPLIBDATA pThis, bool fPreInited, bool fUnrestricted, SUPINITOP *penmWhat, PRTERRINFO pErrInfo)
 {
-    RT_NOREF2(penmWhat, pErrInfo);
+    RT_NOREF(penmWhat, pErrInfo);
 
     /*
      * Nothing to do if pre-inited.

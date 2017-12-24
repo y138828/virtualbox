@@ -341,7 +341,7 @@ int VDMemDiskWriteToFile(PVDMEMDISK pMemDisk, const char *pcszFilename)
 
 int VDMemDiskReadFromFile(PVDMEMDISK pMemDisk, const char *pcszFilename)
 {
-    RT_NOREF2(pMemDisk, pcszFilename);
+    RT_NOREF(pMemDisk, pcszFilename);
     return VERR_NOT_IMPLEMENTED;
 }
 

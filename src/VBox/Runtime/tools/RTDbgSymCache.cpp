@@ -591,7 +591,7 @@ static int rtDbgSymCacheAddDebugMachO(const char *pszPath, PCRTDBGSYMCACHEADDCFG
  */
 static int rtDbgSymCacheAddDebugPdb(const char *pszPath, PCRTDBGSYMCACHEADDCFG pCfg, RTFILE hFile)
 {
-    RT_NOREF2(pCfg, hFile);
+    RT_NOREF(pCfg, hFile);
     return RTMsgErrorRc(VERR_NOT_IMPLEMENTED, "PDB support not implemented: '%s'", pszPath);
 }
 
@@ -1109,7 +1109,7 @@ static int rtDbgSymCacheAddDir(const char *pszPath, PCRTDBGSYMCACHEADDCFG pCfg)
 static RTEXITCODE rtDbgSymCacheAddFileOrDir(const char *pszPath, const char *pszCache, bool fRecursive,
                                             bool fOverwriteOnConflict)
 {
-    RT_NOREF1(fOverwriteOnConflict);
+    RT_NOREF(fOverwriteOnConflict);
     RTDBGSYMCACHEADDCFG Cfg;
     Cfg.fRecursive      = fRecursive;
     Cfg.pszCache        = pszCache;

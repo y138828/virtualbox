@@ -87,7 +87,7 @@ static int vboxClipboardSendData(uint32_t u32Format, void *pv, uint32_t cb)
  */
 int ClipRequestDataForX11(VBOXCLIPBOARDCONTEXT *pCtx, uint32_t u32Format, void **ppv, uint32_t *pcb)
 {
-    RT_NOREF1(pCtx);
+    RT_NOREF(pCtx);
     int rc = VINF_SUCCESS;
     uint32_t cb = 1024;
     void *pv = RTMemAlloc(cb);
@@ -149,7 +149,7 @@ struct _CLIPREADCBREQ
  */
 void ClipReportX11Formats(VBOXCLIPBOARDCONTEXT *pCtx, uint32_t u32Formats)
 {
-    RT_NOREF1(pCtx);
+    RT_NOREF(pCtx);
     LogRelFlowFunc(("u32Formats=%d\n", u32Formats));
     int rc = VbglR3ClipboardReportFormats(g_ctx.client, u32Formats);
     LogRelFlowFunc(("rc=%Rrc\n", rc));
@@ -167,7 +167,7 @@ void ClipReportX11Formats(VBOXCLIPBOARDCONTEXT *pCtx, uint32_t u32Formats)
  */
 void ClipCompleteDataRequestFromX11(VBOXCLIPBOARDCONTEXT *pCtx, int rc, CLIPREADCBREQ *pReq, void *pv, uint32_t cb)
 {
-    RT_NOREF1(pCtx);
+    RT_NOREF(pCtx);
     if (RT_SUCCESS(rc))
         vboxClipboardSendData(pReq->u32Format, pv, cb);
     else
@@ -287,7 +287,7 @@ static const char *getPidFilePath()
 
 static int run(struct VBCLSERVICE **ppInterface, bool fDaemonised)
 {
-    RT_NOREF2(ppInterface, fDaemonised);
+    RT_NOREF(ppInterface, fDaemonised);
 
     /* Initialise the guest library. */
     int rc = VbglR3InitUser();

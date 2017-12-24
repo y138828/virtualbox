@@ -1189,7 +1189,7 @@ USBLIB_DECL(int) USBLibRunFilters(void)
 
 static VOID CALLBACK usbLibTimerCallback(__in PVOID lpParameter, __in BOOLEAN TimerOrWaitFired)
 {
-    RT_NOREF2(lpParameter, TimerOrWaitFired);
+    RT_NOREF(lpParameter, TimerOrWaitFired);
     SetEvent(g_VBoxUsbGlobal.hNotifyEvent);
 }
 
@@ -1258,7 +1258,7 @@ static DWORD WINAPI usbLibMsgThreadProc(__in LPVOID lpParameter)
 {
     static LPCSTR   s_szVBoxUsbWndClassName = "VBoxUsbLibClass";
     const HINSTANCE hInstance               = (HINSTANCE)GetModuleHandle(NULL);
-    RT_NOREF1(lpParameter);
+    RT_NOREF(lpParameter);
 
     Assert(g_VBoxUsbGlobal.hWnd == NULL);
     g_VBoxUsbGlobal.hWnd = NULL;

@@ -473,7 +473,7 @@ int Service::validateName(const char *pszName, uint32_t cbName)
  */
 int Service::validateValue(const char *pszValue, uint32_t cbValue)
 {
-    LogFlowFunc(("cbValue=%d\n", cbValue)); RT_NOREF1(pszValue);
+    LogFlowFunc(("cbValue=%d\n", cbValue)); RT_NOREF(pszValue);
 
     int rc = VINF_SUCCESS;
     if (RT_SUCCESS(rc) && cbValue == 0)

@@ -47,7 +47,7 @@ dt_pragma_apply(dt_idhash_t *dhp, dt_ident_t *idp)
 {
 	dt_idhash_t *php;
 	dt_ident_t *pdp;
-	RT_NOREF1(dhp);
+	RT_NOREF(dhp);
 
 	if ((php = yypcb->pcb_pragmas) == NULL)
 		return; /* no pragmas pending for current compilation pass */
@@ -319,7 +319,7 @@ static void
 dt_pragma_ident(const char *prname, dt_node_t *dnp)
 {
 	/* ignore any #ident or #pragma ident lines */
-	RT_NOREF2(prname, dnp);
+	RT_NOREF(prname, dnp);
 }
 
 static void

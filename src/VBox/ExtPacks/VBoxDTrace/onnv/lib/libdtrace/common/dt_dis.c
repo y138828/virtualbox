@@ -38,7 +38,7 @@
 static void
 dt_dis_log(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %%r%u, %%r%u, %%r%u", name,
 	    DIF_INSTR_R1(in), DIF_INSTR_R2(in), DIF_INSTR_RD(in));
 }
@@ -48,7 +48,7 @@ static void
 dt_dis_branch(const dtrace_difo_t *dp, const char *name,
 	dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %u", name, DIF_INSTR_LABEL(in));
 }
 
@@ -56,7 +56,7 @@ dt_dis_branch(const dtrace_difo_t *dp, const char *name,
 static void
 dt_dis_load(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s [%%r%u], %%r%u", name,
 	    DIF_INSTR_R1(in), DIF_INSTR_RD(in));
 }
@@ -66,7 +66,7 @@ static void
 dt_dis_store(const dtrace_difo_t *dp, const char *name,
 	dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %%r%u, [%%r%u]", name,
 	    DIF_INSTR_R1(in), DIF_INSTR_RD(in));
 }
@@ -75,7 +75,7 @@ dt_dis_store(const dtrace_difo_t *dp, const char *name,
 static void
 dt_dis_str(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF2(dp, in);
+	RT_NOREF(dp, in);
 	(void) fprintf(fp, "%s", name);
 }
 
@@ -83,7 +83,7 @@ dt_dis_str(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 static void
 dt_dis_r1rd(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %%r%u, %%r%u", name,
 	    DIF_INSTR_R1(in), DIF_INSTR_RD(in));
 }
@@ -92,7 +92,7 @@ dt_dis_r1rd(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 static void
 dt_dis_cmp(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %%r%u, %%r%u", name,
 	    DIF_INSTR_R1(in), DIF_INSTR_R2(in));
 }
@@ -101,7 +101,7 @@ dt_dis_cmp(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 static void
 dt_dis_tst(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %%r%u", name, DIF_INSTR_R1(in));
 }
 
@@ -202,7 +202,7 @@ dt_dis_sets(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 static void
 dt_dis_ret(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 	(void) fprintf(fp, "%-4s %%r%u", name, DIF_INSTR_RD(in));
 }
 
@@ -211,7 +211,7 @@ static void
 dt_dis_call(const dtrace_difo_t *dp, const char *name, dif_instr_t in, FILE *fp)
 {
 	uint_t subr = DIF_INSTR_SUBR(in);
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 
 	(void) fprintf(fp, "%-4s DIF_SUBR(%u), %%r%u\t\t! %s",
 	    name, subr, DIF_INSTR_RD(in), dtrace_subrstr(NULL, subr));
@@ -224,7 +224,7 @@ dt_dis_pushts(const dtrace_difo_t *dp,
 {
 	static const char *const tnames[] = { "D type", "string" };
 	uint_t type = DIF_INSTR_TYPE(in);
-	RT_NOREF1(dp);
+	RT_NOREF(dp);
 
 	(void) fprintf(fp, "%-4s DT_TYPE(%u), %%r%u, %%r%u",
 	    name, type, DIF_INSTR_R2(in), DIF_INSTR_RS(in));

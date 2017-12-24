@@ -414,7 +414,7 @@ static bool dbgDiggerDarwinIsValidSegOrSectName(const char *pszName, size_t cbNa
 
 static int dbgDiggerDarwinAddModule(PDBGDIGGERDARWIN pThis, PUVM pUVM, uint64_t uModAddr, const char *pszName, bool *pf64Bit)
 {
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
     union
     {
         uint8_t             ab[2 * X86_PAGE_4K_SIZE];

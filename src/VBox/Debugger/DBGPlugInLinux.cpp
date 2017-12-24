@@ -661,7 +661,7 @@ static int dbgDiggerLinuxLogBufferQueryAscii(PDBGDIGGERLINUX pThis, PUVM pUVM, R
                                              uint32_t fFlags, uint32_t cMessages,
                                              char *pszBuf, size_t cbBuf, size_t *pcbActual)
 {
-    RT_NOREF2(fFlags, cMessages);
+    RT_NOREF(fFlags, cMessages);
     int rc = VINF_SUCCESS;
     RTGCPTR  GCPtrLogBuf;
     uint32_t cbLogBuf;
@@ -775,7 +775,7 @@ static int dbgDiggerLinuxLogBufferQueryRecords(PDBGDIGGERLINUX pThis, PUVM pUVM,
                                                uint32_t fFlags, uint32_t cMessages,
                                                char *pszBuf, size_t cbBuf, size_t *pcbActual)
 {
-    RT_NOREF1(fFlags);
+    RT_NOREF(fFlags);
     int rc = VINF_SUCCESS;
     RTGCPTR  GCPtrLogBuf;
     uint32_t cbLogBuf;

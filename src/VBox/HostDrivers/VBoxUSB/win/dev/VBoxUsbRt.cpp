@@ -1028,7 +1028,7 @@ static NTSTATUS vboxUsbRtDispatchUsbAbortEndpoint(PVBOXUSBDEV_EXT pDevExt, PIRP 
 
 static NTSTATUS vboxUsbRtUrbSendCompletion(PDEVICE_OBJECT pDevObj, IRP *pIrp, void *pvContext)
 {
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
 
     if (!pvContext)
     {

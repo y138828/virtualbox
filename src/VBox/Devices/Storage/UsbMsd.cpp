@@ -1073,7 +1073,7 @@ static int usbMsdResetWorker(PUSBMSD pThis, PVUSBURB pUrb, bool fSetConfig)
  */
 static void usbMsdReqComplete(PUSBMSD pThis, PUSBMSDREQ pReq, int rcReq)
 {
-    RT_NOREF1(rcReq);
+    RT_NOREF(rcReq);
 
     Log(("usbMsdLun0IoReqCompleteNotify: pReq=%p dCBWTag=%#x iScsiReqStatus=%u \n", pReq, pReq->Cbw.dCBWTag, pReq->iScsiReqStatus));
     RTCritSectEnter(&pThis->CritSect);

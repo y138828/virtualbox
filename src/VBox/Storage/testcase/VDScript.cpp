@@ -889,7 +889,7 @@ static bool vdScriptTokenizerSkipIfIsOperatorEqual(PVDTOKENIZER pTokenizer, cons
  */
 static int vdScriptParserError(PVDSCRIPTCTXINT pThis, int rc, RT_SRC_POS_DECL, const char *pszFmt, ...)
 {
-    RT_NOREF1(pThis); RT_SRC_POS_NOREF();
+    RT_NOREF(pThis); RT_SRC_POS_NOREF();
     va_list va;
     va_start(va, pszFmt);
     RTPrintfV(pszFmt, va);
@@ -2523,7 +2523,7 @@ static int vdScriptParseFor(PVDSCRIPTCTXINT pThis, PVDSCRIPTASTFOR pAstNodeFor)
 static int vdScriptParseDeclaration(PVDSCRIPTCTXINT pThis, PVDSCRIPTASTDECL *ppAstNodeDecl)
 {
     int rc = VERR_NOT_IMPLEMENTED;
-    RT_NOREF2(pThis, ppAstNodeDecl);
+    RT_NOREF(pThis, ppAstNodeDecl);
     return rc;
 }
 

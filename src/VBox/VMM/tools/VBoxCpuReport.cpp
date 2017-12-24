@@ -2671,7 +2671,7 @@ static bool isMsrViaDummy(uint32_t uMsr, uint64_t uValue, uint32_t fFlags)
  */
 static void adjustCanonicalIgnAndGpMasks(uint32_t uMsr, uint64_t *pfIgn, uint64_t *pfGp)
 {
-    RT_NOREF1(pfIgn);
+    RT_NOREF(pfIgn);
     if (!vbCpuRepSupportsLongMode())
         return;
     switch (uMsr)

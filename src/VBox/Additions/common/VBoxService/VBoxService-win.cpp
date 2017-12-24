@@ -597,7 +597,7 @@ static VOID WINAPI vgsvcWinCtrlHandlerNt4(DWORD dwControl)
 static DWORD WINAPI vgsvcWinCtrlHandlerNt5Plus(DWORD dwControl, DWORD dwEventType, LPVOID lpEventData, LPVOID lpContext)
 {
     VGSvcVerbose(2, "Control handler: dwControl=%#x, dwEventType=%#x\n", dwControl, dwEventType);
-    RT_NOREF1(lpContext);
+    RT_NOREF(lpContext);
 
     switch (dwControl)
     {
@@ -625,7 +625,7 @@ static DWORD WINAPI vgsvcWinCtrlHandlerNt5Plus(DWORD dwControl, DWORD dwEventTyp
 
 static void WINAPI vgsvcWinMain(DWORD argc, LPTSTR *argv)
 {
-    RT_NOREF2(argc, argv);
+    RT_NOREF(argc, argv);
     VGSvcVerbose(2, "Registering service control handler ...\n");
     if (g_pfnRegisterServiceCtrlHandlerExA)
         g_hWinServiceStatus = g_pfnRegisterServiceCtrlHandlerExA(VBOXSERVICE_NAME, vgsvcWinCtrlHandlerNt5Plus, NULL);

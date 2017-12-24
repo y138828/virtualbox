@@ -67,7 +67,7 @@
 
 BOOL APIENTRY DllMain(HANDLE hModule, DWORD  uReason, LPVOID lpReserved)
 {
-    RT_NOREF3(hModule, uReason, lpReserved);
+    RT_NOREF(hModule, uReason, lpReserved);
     return TRUE;
 }
 
@@ -111,7 +111,7 @@ UINT __stdcall IsSerialCheckNeeded(MSIHANDLE hModule)
 #ifndef VBOX_OSE
     /*BOOL bRet =*/ serialCheckNeeded(hModule);
 #else
-    RT_NOREF1(hModule);
+    RT_NOREF(hModule);
 #endif
     return ERROR_SUCCESS;
 }
@@ -121,7 +121,7 @@ UINT __stdcall CheckSerial(MSIHANDLE hModule)
 #ifndef VBOX_OSE
     /*BOOL bRet =*/ serialIsValid(hModule);
 #else
-    RT_NOREF1(hModule);
+    RT_NOREF(hModule);
 #endif
     return ERROR_SUCCESS;
 }
@@ -509,7 +509,7 @@ static UINT _uninstallNetLwf(MSIHANDLE hModule);
 
 static VOID vboxDrvLoggerCallback(VBOXDRVCFG_LOG_SEVERITY enmSeverity, char *pszMsg, void *pvContext)
 {
-    RT_NOREF1(pvContext);
+    RT_NOREF(pvContext);
     switch (enmSeverity)
     {
         case VBOXDRVCFG_LOG_SEVERITY_FLOW:

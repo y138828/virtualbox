@@ -184,7 +184,7 @@ static const char* vboxUsbDbgStrPnPMn(UCHAR uMn)
 
 void vboxUsbDbgPrintUnicodeString(PUNICODE_STRING pUnicodeString)
 {
-    RT_NOREF1(pUnicodeString);
+    RT_NOREF(pUnicodeString);
     Log(("%.*ls", pUnicodeString->Length / 2, pUnicodeString->Buffer));
 }
 
@@ -635,7 +635,7 @@ VOID vboxUsbMonHubDevWalk(PFNVBOXUSBMONDEVWALKER pfnWalker, PVOID pvWalker, ULON
         }
     }
 #else /* VBOX_USB3PORT */
-    RT_NOREF1(fFlags);
+    RT_NOREF(fFlags);
     PWSTR szwHubList;
     Status = IoGetDeviceInterfaces(&GUID_DEVINTERFACE_USB_HUB, NULL, 0, &szwHubList);
     if (Status != STATUS_SUCCESS)
@@ -1547,7 +1547,7 @@ static NTSTATUS _stdcall VBoxUsbMonClose(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 
 static NTSTATUS _stdcall VBoxUsbMonCreate(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 {
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
     PIO_STACK_LOCATION pStack = IoGetCurrentIrpStackLocation(pIrp);
     PFILE_OBJECT pFileObj = pStack->FileObject;
     NTSTATUS Status;
@@ -1896,7 +1896,7 @@ static NTSTATUS _stdcall VBoxUsbMonInternalDeviceControl(PDEVICE_OBJECT pDevObj,
  */
 static void _stdcall VBoxUsbMonUnload(PDRIVER_OBJECT pDrvObj)
 {
-    RT_NOREF1(pDrvObj);
+    RT_NOREF(pDrvObj);
     LOG(("VBoxUSBMonUnload pDrvObj (0x%p)", pDrvObj));
 
     IoReleaseRemoveLockAndWait(&g_VBoxUsbMonGlobals.RmLock, &g_VBoxUsbMonGlobals);
@@ -1931,7 +1931,7 @@ RT_C_DECLS_END
  */
 NTSTATUS _stdcall DriverEntry(PDRIVER_OBJECT pDrvObj, PUNICODE_STRING pRegPath)
 {
-    RT_NOREF1(pRegPath);
+    RT_NOREF(pRegPath);
 #ifdef VBOX_USB_WITH_VERBOSE_LOGGING
     RTLogGroupSettings(0, "+default.e.l.f.l2.l3");
     RTLogDestinations(0, "debugger");

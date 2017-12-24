@@ -3363,7 +3363,7 @@ PDMBOTHCBDECL(int) pcnetIOPortAPromWrite(PPDMDEVINS pDevIns, void *pvUser, RTIOP
 
 static int pcnetIoportWriteU8(PPCNETSTATE pThis, uint32_t addr, uint32_t val)
 {
-    RT_NOREF1(val);
+    RT_NOREF(val);
 #ifdef PCNET_DEBUG_IO
     Log2(("#%d pcnetIoportWriteU8: addr=%#010x val=%#06x\n", PCNET_INST_NR, addr, val));
 #endif

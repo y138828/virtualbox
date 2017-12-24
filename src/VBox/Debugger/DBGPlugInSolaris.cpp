@@ -430,7 +430,7 @@ static DECLCALLBACK(int)  dbgDiggerSolarisQueryVersion(PUVM pUVM, void *pvData, 
  */
 static void dbgDiggerSolarisProcessModCtl32(PUVM pUVM, PDBGDIGGERSOLARIS pThis, SOL_modctl_t const *pModCtl)
 {
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
 
     /* skip it if it's not loaded and installed */
     AssertCompile2MemberOffsets(SOL_modctl_t, v11_32.mod_loaded,    v9_32.mod_loaded);
@@ -579,7 +579,7 @@ static void dbgDiggerSolarisProcessModCtl32(PUVM pUVM, PDBGDIGGERSOLARIS pThis, 
  */
 static void dbgDiggerSolarisProcessModCtl64(PUVM pUVM, PDBGDIGGERSOLARIS pThis, SOL_modctl_t const *pModCtl)
 {
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
 
     /* skip it if it's not loaded and installed */
     AssertCompile2MemberOffsets(SOL_modctl_t, v11_64.mod_loaded,    v9_64.mod_loaded);

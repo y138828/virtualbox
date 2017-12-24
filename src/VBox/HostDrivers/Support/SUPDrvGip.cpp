@@ -2997,7 +2997,7 @@ static bool supdrvTscDeltaSync2_After(PSUPTSCDELTASYNC2 pMySync, PSUPTSCDELTASYN
                                       bool fIsMaster, RTCCUINTREG fEFlags)
 {
     TSCDELTA_DBG_VARS();
-    RT_NOREF1(pOtherSync);
+    RT_NOREF(pOtherSync);
 
     /*
      * Wait for the 'ready' signal.  In the master's case, this means the
@@ -3322,7 +3322,7 @@ static void supdrvTscDeltaMethod2Loop(PSUPDRVGIPTSCDELTARGS pArgs, PSUPTSCDELTAS
                                       bool fIsMaster, uint32_t iTry)
 {
     unsigned iLoop;
-    RT_NOREF1(iTry);
+    RT_NOREF(iTry);
 
     for (iLoop = 0; iLoop < GIP_TSC_DELTA_M2_LOOPS; iLoop++)
     {
@@ -4699,7 +4699,7 @@ int VBOXCALL supdrvIOCtl_TscDeltaMeasure(PSUPDRVDEVEXT pDevExt, PSUPDRVSESSION p
     uint32_t        iCpuSet;
     uint32_t        fFlags;
     RTMSINTERVAL    cMsWaitRetry;
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
 
     /*
      * Validate and adjust/resolve the input so they can be passed onto SUPR0TscDeltaMeasureBySetIndex.

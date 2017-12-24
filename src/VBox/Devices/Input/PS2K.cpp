@@ -1349,7 +1349,7 @@ int PS2KLoadState(PPS2K pThis, PSSMHANDLE pSSM, uint32_t uVersion)
 
 int PS2KLoadDone(PPS2K pThis, PSSMHANDLE pSSM)
 {
-    RT_NOREF1(pSSM);
+    RT_NOREF(pSSM);
 
     /* This *must* be done after the inital load because it may trigger
      * interrupts and change the interrupt controller state.
@@ -1382,7 +1382,7 @@ void PS2KReset(PPS2K pThis)
 
 void PS2KRelocate(PPS2K pThis, RTGCINTPTR offDelta, PPDMDEVINS pDevIns)
 {
-    RT_NOREF1(pDevIns);
+    RT_NOREF(pDevIns);
     LogFlowFunc(("Relocating PS2K\n"));
     pThis->pKbdDelayTimerRC     = TMTimerRCPtr(pThis->pKbdDelayTimerR3);
     pThis->pKbdTypematicTimerRC = TMTimerRCPtr(pThis->pKbdTypematicTimerR3);
@@ -1391,7 +1391,7 @@ void PS2KRelocate(PPS2K pThis, RTGCINTPTR offDelta, PPDMDEVINS pDevIns)
 
 int PS2KConstruct(PPS2K pThis, PPDMDEVINS pDevIns, void *pParent, int iInstance)
 {
-    RT_NOREF2(pDevIns, iInstance);
+    RT_NOREF(pDevIns, iInstance);
     LogFlowFunc(("iInstance=%d\n", iInstance));
 
     pThis->pParent = pParent;

@@ -1681,7 +1681,7 @@ static int dbgcCmdUnassembleCfgDumpCalcDimensions(DBGFFLOWIT hFlowIt, DBGFFLOWBR
                                                   PDBGCFLOWBBDUMP paDumpBb, PDBGCFLOWBRANCHTBLDUMP paDumpBranchTbl,
                                                   uint32_t cBbs, uint32_t cBranchTbls)
 {
-    RT_NOREF2(cBbs, cBranchTbls);
+    RT_NOREF(cBbs, cBranchTbls);
 
     /* Calculate the sizes of each basic block first. */
     DBGFFLOWBB hFlowBb = DBGFR3FlowItNext(hFlowIt);
@@ -5634,7 +5634,7 @@ void dbgcEventTerm(PDBGC pDbgc)
 
 static void dbgcEventDisplay(PDBGCCMDHLP pCmdHlp, const char *pszName, DBGCEVTSTATE enmDefault, PDBGCEVTCFG const *ppEvtCfg)
 {
-    RT_NOREF1(enmDefault);
+    RT_NOREF(enmDefault);
     PDBGCEVTCFG pEvtCfg = *ppEvtCfg;
 
     const char *pszState;

@@ -121,7 +121,7 @@ static VOID vboxNetFltWinPtBindAdapter(OUT PNDIS_STATUS pStatus,
         IN PVOID pvSystemSpecific2)
 {
     LogFlowFuncEnter();
-    RT_NOREF2(hBindContext, pvSystemSpecific2);
+    RT_NOREF(hBindContext, pvSystemSpecific2);
 
     NDIS_STATUS Status;
     NDIS_HANDLE hConfig = NULL;
@@ -152,7 +152,7 @@ static VOID vboxNetFltWinPtBindAdapter(OUT PNDIS_STATUS pStatus,
 static VOID vboxNetFltWinPtOpenAdapterComplete(IN NDIS_HANDLE hProtocolBindingContext, IN NDIS_STATUS Status, IN NDIS_STATUS OpenErrorStatus)
 {
     PVBOXNETFLTINS pNetFlt = (PVBOXNETFLTINS)hProtocolBindingContext;
-    RT_NOREF1(OpenErrorStatus);
+    RT_NOREF(OpenErrorStatus);
 
     LogFlowFunc(("ENTER: pNetFlt (0x%p), Status (0x%x), OpenErrorStatus(0x%x)\n", pNetFlt, Status, OpenErrorStatus));
     Assert(pNetFlt->u.s.WinIf.OpenCloseStatus == NDIS_STATUS_SUCCESS);
@@ -264,7 +264,7 @@ static VOID vboxNetFltWinPtUnbindAdapter(OUT PNDIS_STATUS pStatus,
         IN NDIS_HANDLE hUnbindContext)
 {
     PVBOXNETFLTINS pNetFlt = (PVBOXNETFLTINS)hContext;
-    RT_NOREF1(hUnbindContext);
+    RT_NOREF(hUnbindContext);
 
     LogFlowFunc(("ENTER: pNetFlt (0x%p)\n", pNetFlt));
 
@@ -301,7 +301,7 @@ static VOID vboxNetFltWinPtCloseAdapterComplete(IN NDIS_HANDLE ProtocolBindingCo
 
 static VOID vboxNetFltWinPtResetComplete(IN NDIS_HANDLE hProtocolBindingContext, IN NDIS_STATUS Status)
 {
-    RT_NOREF2(hProtocolBindingContext, Status);
+    RT_NOREF(hProtocolBindingContext, Status);
     LogFlowFunc(("ENTER: pNetFlt 0x%p, Status 0x%x\n", hProtocolBindingContext, Status));
     /*
      * should never be here

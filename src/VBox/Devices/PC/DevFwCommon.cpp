@@ -1030,7 +1030,7 @@ void FwCommonPlantSmbiosAndDmiHdrs(PPDMDEVINS pDevIns, uint16_t cbDmiTables, uin
  */
 void FwCommonPlantMpsTable(PPDMDEVINS pDevIns, uint8_t *pTable, unsigned cbMax, uint16_t cCpus)
 {
-    RT_NOREF1(cbMax);
+    RT_NOREF(cbMax);
 
     /* configuration table */
     PMPSCFGTBLHEADER pCfgTab      = (MPSCFGTBLHEADER*)pTable;

@@ -35,7 +35,7 @@ static NDIS_STATUS vboxNetFltWinMpInitialize(OUT PNDIS_STATUS OpenErrorStatus,
         IN NDIS_HANDLE MiniportAdapterHandle,
         IN NDIS_HANDLE WrapperConfigurationContext)
 {
-    RT_NOREF1(WrapperConfigurationContext);
+    RT_NOREF(WrapperConfigurationContext);
     PVBOXNETFLTINS pNetFlt = (PVBOXNETFLTINS)NdisIMGetDeviceContext(MiniportAdapterHandle);
     NDIS_STATUS Status = NDIS_STATUS_FAILURE;
 
@@ -170,7 +170,7 @@ DECLHIDDEN(NDIS_STATUS) vboxNetFltWinMpDoDeinitialization(PVBOXNETFLTINS pNetFlt
 static NDIS_STATUS vboxNetFltWinMpReadApplyConfig(PVBOXNETFLTINS pThis, NDIS_HANDLE hMiniportAdapter,
                                                   NDIS_HANDLE hWrapperConfigurationContext)
 {
-    RT_NOREF1(hMiniportAdapter);
+    RT_NOREF(hMiniportAdapter);
     NDIS_STATUS Status = NDIS_STATUS_SUCCESS;
     NDIS_HANDLE hConfiguration;
     PNDIS_CONFIGURATION_PARAMETER pParameterValue;
@@ -1392,7 +1392,8 @@ static NDIS_STATUS vboxNetFltWinMpTransferData(OUT PNDIS_PACKET Packet,
     return Status;
 
 #else
-    RT_NOREF6(Packet, BytesTransferred, hContext, MiniportReceiveContext, ByteOffset, BytesToTransfer);
+    RT_NOREF(Packet, BytesTransferred, hContext, MiniportReceiveContext,
+             ByteOffset, BytesToTransfer);
     LogFlowFunc(("ENTER: pNetFlt (0x%p)\n", hContext));
     /* should never be here */
     AssertFailed();

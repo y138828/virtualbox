@@ -2323,7 +2323,7 @@ static int supR3HardenedMainGetTrustedLib(const char *pszProgName, uint32_t fMai
     if (fMainFlags & SUPSECMAIN_FLAGS_OSX_VM_APP)
         pszProgName = "VirtualBox";
 #else
-    RT_NOREF1(fMainFlags);
+    RT_NOREF(fMainFlags);
 #endif
     size_t cch = suplibHardenedStrLen(pszPath);
     return suplibHardenedStrCopyEx(&pszPath[cch], cbPath - cch, pszSubDirSlash, pszProgName, SUPLIB_DLL_SUFF, NULL);

@@ -590,7 +590,7 @@ static void dbgcPrintHelpFunction(PDBGCCMDHLP pCmdHlp, PCDBGCFUNC pFunc, bool fE
 static void dbgcCmdHelpCommandsWorker(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, PCDBGCCMD paCmds, uint32_t cCmds, bool fExternal,
                                       const char *pszDescFmt, ...)
 {
-    RT_NOREF1(pDbgc);
+    RT_NOREF(pDbgc);
     if (pszDescFmt)
     {
         va_list va;
@@ -629,7 +629,7 @@ static void dbgcCmdHelpCommands(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, uint32_t *pcHi
 static void dbgcCmdHelpFunctionsWorker(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, PCDBGCFUNC paFuncs, size_t cFuncs, bool fExternal,
                                        const char *pszDescFmt, ...)
 {
-    RT_NOREF1(pDbgc);
+    RT_NOREF(pDbgc);
     if (pszDescFmt)
     {
         va_list va;
@@ -669,7 +669,7 @@ static void dbgcCmdHelpFunctions(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, uint32_t *pcH
 
 static void dbgcCmdHelpOperators(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, uint32_t *pcHits)
 {
-    RT_NOREF1(pDbgc);
+    RT_NOREF(pDbgc);
     DBGCCmdHlpPrintf(pCmdHlp, !*pcHits ? "Operators:\n" : "\nOperators:\n");
     *pcHits += 1;
 
@@ -708,7 +708,7 @@ static void dbgcCmdHelpAll(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, uint32_t *pcHits)
 
 static void dbgcCmdHelpSummary(PDBGC pDbgc, PDBGCCMDHLP pCmdHlp, uint32_t *pcHits)
 {
-    RT_NOREF1(pDbgc);
+    RT_NOREF(pDbgc);
     *pcHits += 1;
     DBGCCmdHlpPrintf(pCmdHlp,
                      "\n"

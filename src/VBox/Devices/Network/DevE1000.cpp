@@ -1792,7 +1792,7 @@ DECLINLINE(int) e1kGetDescType(E1KTXDESC *pDesc)
  */
 static void e1kPrintRDesc(PE1KSTATE pThis, E1KRXDESC *pDesc)
 {
-    RT_NOREF2(pThis, pDesc);
+    RT_NOREF(pThis, pDesc);
     E1kLog2(("%s <-- Receive Descriptor (%d bytes):\n", pThis->szPrf, pDesc->u16Length));
     E1kLog2(("        Address=%16LX Length=%04X Csum=%04X\n",
              pDesc->u64BufAddr, pDesc->u16Length, pDesc->u16Checksum));
@@ -4031,7 +4031,7 @@ static void e1kTransmitFrame(PE1KSTATE pThis, bool fOnWorkerThread)
  */
 static void e1kInsertChecksum(PE1KSTATE pThis, uint8_t *pPkt, uint16_t u16PktLen, uint8_t cso, uint8_t css, uint16_t cse)
 {
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
 
     if (css >= u16PktLen)
     {
@@ -5626,7 +5626,7 @@ static int e1kRegReadVFTA(PE1KSTATE pThis, uint32_t offset, uint32_t index, uint
  */
 static int e1kRegReadUnimplemented(PE1KSTATE pThis, uint32_t offset, uint32_t index, uint32_t *pu32Value)
 {
-    RT_NOREF3(pThis, offset, index);
+    RT_NOREF(pThis, offset, index);
     E1kLog(("%s At %08X read (00000000) attempt from unimplemented register %s (%s)\n",
             pThis->szPrf, offset, g_aE1kRegMap[index].abbrev, g_aE1kRegMap[index].name));
     *pu32Value = 0;

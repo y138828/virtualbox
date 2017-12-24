@@ -1300,7 +1300,7 @@ static int vciCreateImage(PVCICACHE pCache, uint64_t cbSize,
                           void *pvUser, unsigned uPercentStart,
                           unsigned uPercentSpan)
 {
-    RT_NOREF1(pszComment);
+    RT_NOREF(pszComment);
     VciHdr Hdr;
     VciTreeNode NodeRoot;
     int rc;

@@ -1021,7 +1021,7 @@ static int vmdkAllocStreamBuffers(PVMDKIMAGE pImage, PVMDKEXTENT pExtent)
  */
 static int vmdkAllocGrainDirectory(PVMDKIMAGE pImage, PVMDKEXTENT pExtent)
 {
-    RT_NOREF1(pImage);
+    RT_NOREF(pImage);
     int rc = VINF_SUCCESS;
     size_t cbGD = pExtent->cGDEntries * sizeof(uint32_t);
 
@@ -1646,7 +1646,7 @@ static int vmdkDescBaseSetStr(PVMDKIMAGE pImage, PVMDKDESCRIPTOR pDescriptor,
 static void vmdkDescExtRemoveDummy(PVMDKIMAGE pImage,
                                    PVMDKDESCRIPTOR pDescriptor)
 {
-    RT_NOREF1(pImage);
+    RT_NOREF(pImage);
     unsigned uEntry = pDescriptor->uFirstExtent;
     ssize_t cbDiff;
 
@@ -4741,7 +4741,7 @@ static int vmdkAllocGrainGTUpdate(PVMDKIMAGE pImage, PVMDKEXTENT pExtent, PVDIOC
  */
 static int vmdkAllocGrainComplete(void *pBackendData, PVDIOCTX pIoCtx, void *pvUser, int rcReq)
 {
-    RT_NOREF1(rcReq);
+    RT_NOREF(rcReq);
     int rc = VINF_SUCCESS;
     PVMDKIMAGE pImage = (PVMDKIMAGE)pBackendData;
     PVMDKGRAINALLOCASYNC pGrainAlloc = (PVMDKGRAINALLOCASYNC)pvUser;

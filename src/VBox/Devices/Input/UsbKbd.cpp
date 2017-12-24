@@ -501,7 +501,7 @@ static void usbHidLinkDone(PUSBHID pThis, PVUSBURB pUrb)
  */
 static int usbHidCompleteStall(PUSBHID pThis, PUSBHIDEP pEp, PVUSBURB pUrb, const char *pszWhy)
 {
-    RT_NOREF1(pszWhy);
+    RT_NOREF(pszWhy);
     Log(("usbHidCompleteStall/#%u: pUrb=%p:%s: %s\n", pThis->pUsbIns->iInstance, pUrb, pUrb->pszDesc, pszWhy));
 
     pUrb->enmStatus = VUSBSTATUS_STALL;

@@ -1272,7 +1272,7 @@ static int qedCreateImage(PQEDIMAGE pImage, uint64_t cbSize,
                           PVDINTERFACEPROGRESS pIfProgress,
                           unsigned uPercentStart, unsigned uPercentSpan)
 {
-    RT_NOREF1(pszComment);
+    RT_NOREF(pszComment);
     int rc;
 
     if (!(uImageFlags & VD_IMAGE_FLAGS_FIXED))
@@ -1358,7 +1358,7 @@ static int qedCreateImage(PQEDIMAGE pImage, uint64_t cbSize,
  */
 static int qedAsyncClusterAllocRollback(PQEDIMAGE pImage, PVDIOCTX pIoCtx, PQEDCLUSTERASYNCALLOC pClusterAlloc)
 {
-    RT_NOREF1(pIoCtx);
+    RT_NOREF(pIoCtx);
     int rc = VINF_SUCCESS;
 
     switch (pClusterAlloc->enmAllocState)

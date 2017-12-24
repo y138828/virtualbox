@@ -2689,7 +2689,7 @@ static NDIS_STATUS vboxNetFltWinDisconnectIt(PVBOXNETFLTINS pInstance)
 #ifndef VBOXNETFLT_NO_PACKET_QUEUE
     vboxNetFltWinQuFiniPacketQueue(pInstance);
 #else
-    RT_NOREF1(pInstance);
+    RT_NOREF(pInstance);
 #endif
     return NDIS_STATUS_SUCCESS;
 }
@@ -2789,7 +2789,7 @@ static bool vboxNetFltWinIsPromiscuous2(PVBOXNETFLTINS pThis)
     }
     return false;
 #else
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
     return true;
 #endif
 }
@@ -2960,7 +2960,7 @@ static int vboxNetFltWinAttachToInterface(PVBOXNETFLTINS pThis, void * pContext,
 }
 static NTSTATUS vboxNetFltWinPtDevDispatch(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp)
 {
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
     PIO_STACK_LOCATION pIrpSl = IoGetCurrentIrpStackLocation(pIrp);;
     NTSTATUS Status = STATUS_SUCCESS;
 
@@ -3108,7 +3108,7 @@ bool vboxNetFltOsMaybeRediscovered(PVBOXNETFLTINS pThis)
 
 int vboxNetFltPortOsXmit(PVBOXNETFLTINS pThis, void *pvIfData, PINTNETSG pSG, uint32_t fDst)
 {
-    RT_NOREF1(pvIfData);
+    RT_NOREF(pvIfData);
     int rc = VINF_SUCCESS;
     uint32_t cRefs = 0;
 #ifndef VBOXNETADP
@@ -3419,7 +3419,7 @@ void vboxNetFltWinAddAddressHandler(PTA_ADDRESS Address,
                                     PUNICODE_STRING DeviceName,
                                     PTDI_PNP_CONTEXT Context)
 {
-    RT_NOREF2(DeviceName, Context);
+    RT_NOREF(DeviceName, Context);
     vboxNetFltWinNotifyHostAddress(Address, true);
 }
 
@@ -3427,7 +3427,7 @@ void vboxNetFltWinDelAddressHandler(PTA_ADDRESS Address,
                                     PUNICODE_STRING DeviceName,
                                     PTDI_PNP_CONTEXT Context)
 {
-    RT_NOREF2(DeviceName, Context);
+    RT_NOREF(DeviceName, Context);
     vboxNetFltWinNotifyHostAddress(Address, false);
 }
 
@@ -3622,19 +3622,19 @@ int vboxNetFltOsPreInitInstance(PVBOXNETFLTINS pThis)
 
 void vboxNetFltPortOsNotifyMacAddress(PVBOXNETFLTINS pThis, void *pvIfData, PCRTMAC pMac)
 {
-    RT_NOREF3(pThis, pvIfData, pMac);
+    RT_NOREF(pThis, pvIfData, pMac);
 }
 
 int vboxNetFltPortOsConnectInterface(PVBOXNETFLTINS pThis, void *pvIf, void **ppvIfData)
 {
     /* Nothing to do */
-    RT_NOREF3(pThis, pvIf, ppvIfData);
+    RT_NOREF(pThis, pvIf, ppvIfData);
     return VINF_SUCCESS;
 }
 
 int vboxNetFltPortOsDisconnectInterface(PVBOXNETFLTINS pThis, void *pvIfData)
 {
     /* Nothing to do */
-    RT_NOREF2(pThis, pvIfData);
+    RT_NOREF(pThis, pvIfData);
     return VINF_SUCCESS;
 }

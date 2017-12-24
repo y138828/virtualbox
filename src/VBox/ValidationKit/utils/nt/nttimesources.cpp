@@ -83,7 +83,7 @@ static void DelayMillies(DWORD dwMsStart, DWORD cMillies)
 
 int main(int argc, char **argv)
 {
-    RT_NOREF1(argv);
+    RT_NOREF(argv);
 
     /*
      * Init, create a test instance and "parse" arguments.

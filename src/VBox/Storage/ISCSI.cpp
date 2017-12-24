@@ -2654,7 +2654,7 @@ static int iscsiRecvPDUProcess(PISCSIIMAGE pImage, PISCSIRES paRes, uint32_t cnR
  */
 static int iscsiValidatePDU(PISCSIRES paRes, uint32_t cnRes)
 {
-    RT_NOREF1(cnRes);
+    RT_NOREF(cnRes);
     const uint32_t *pcrgResBHS;
     uint32_t hw0;
     Assert(cnRes >= 1);

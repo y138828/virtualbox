@@ -155,7 +155,7 @@ void testTwo(void)
 
 int main(int argc, char **argv)
 {
-    RT_NOREF2(argc, argv);
+    RT_NOREF(argc, argv);
     RTTEST hTest;
     RTEXITCODE rcExit = RTTestInitAndCreate("tstDisasm", &hTest);
     if (rcExit)

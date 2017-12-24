@@ -640,7 +640,7 @@ VMMR3_INT_DECL(void) PDMR3Relocate(PVM pVM, RTGCINTPTR offDelta)
  */
 static void pdmR3TermLuns(PVM pVM, PPDMLUN pLun, const char *pszDevice, unsigned iInstance)
 {
-    RT_NOREF2(pszDevice, iInstance);
+    RT_NOREF(pszDevice, iInstance);
 
     for (; pLun; pLun = pLun->pNext)
     {

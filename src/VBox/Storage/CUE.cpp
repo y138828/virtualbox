@@ -946,7 +946,7 @@ static int cueParseTrack(PCUEIMAGE pThis, PCUETOKENIZER pTokenizer)
                     if (RT_SUCCESS(rc))
                     {
                         /* Create a new region for this track. */
-                        RT_NOREF1(enmDataMode);
+                        RT_NOREF(enmDataMode);
                         rc = cueEnsureRegionListSize(pThis, u64Track);
                         if (RT_SUCCESS(rc))
                         {

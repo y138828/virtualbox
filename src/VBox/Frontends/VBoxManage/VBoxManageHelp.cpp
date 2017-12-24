@@ -1253,7 +1253,7 @@ RTEXITCODE errorSyntaxEx(USAGECATEGORY fCategory, uint32_t fSubCategory, const c
     else
         printUsage(fCategory, fSubCategory, g_pStdErr);
 #else
-    RT_NOREF2(fCategory, fSubCategory);
+    RT_NOREF(fCategory, fSubCategory);
 #endif
     va_start(args, pszFormat);
     RTStrmPrintf(g_pStdErr, "\nSyntax error: %N\n", pszFormat, &args);
@@ -1306,7 +1306,7 @@ RTEXITCODE errorGetOptEx(USAGECATEGORY fCategory, uint32_t fSubCategory, int rc,
     else
         printUsage(fCategory, fSubCategory, g_pStdErr);
 #else
-    RT_NOREF2(fCategory, fSubCategory);
+    RT_NOREF(fCategory, fSubCategory);
 #endif
 
     if (rc == VINF_GETOPT_NOT_OPTION)

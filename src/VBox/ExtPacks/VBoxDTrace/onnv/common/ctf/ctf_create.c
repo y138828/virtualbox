@@ -1040,7 +1040,7 @@ membcmp(const char *name, ctf_id_t type, ulong_t offset, void *arg)
 {
 	ctf_bundle_t *ctb = arg;
 	ctf_membinfo_t ctm;
-	RT_NOREF1(type);
+	RT_NOREF(type);
 
 	return (ctf_member_info(ctb->ctb_file, ctb->ctb_type,
 	    name, &ctm) == CTF_ERR || ctm.ctm_offset != offset);

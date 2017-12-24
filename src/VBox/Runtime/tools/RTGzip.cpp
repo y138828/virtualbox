@@ -84,7 +84,7 @@ typedef RTGZIPCMDOPTS const *PCRTGZIPCMDOPTS;
 static bool gzipIsStdHandleATty(RTHANDLESTD enmStdHandle)
 {
     /** @todo Add isatty() to IPRT. */
-    RT_NOREF1(enmStdHandle);
+    RT_NOREF(enmStdHandle);
     return false;
 }
 
@@ -286,7 +286,7 @@ static RTEXITCODE gzipTestFile(PRTVFSIOSTREAM phVfsSrc, PCRTGZIPCMDOPTS pOpts)
 
 static RTEXITCODE gzipListFile(PRTVFSIOSTREAM phVfsSrc, PCRTGZIPCMDOPTS pOpts)
 {
-    RT_NOREF2(phVfsSrc, pOpts);
+    RT_NOREF(phVfsSrc, pOpts);
     return RTMsgErrorExit(RTEXITCODE_FAILURE, "Listing has not been implemented");
 }
 

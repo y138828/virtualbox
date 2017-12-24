@@ -572,7 +572,7 @@ static void vboxdrvNtDestroyDevices(void)
  */
 NTSTATUS _stdcall DriverEntry(PDRIVER_OBJECT pDrvObj, PUNICODE_STRING pRegPath)
 {
-    RT_NOREF1(pRegPath);
+    RT_NOREF(pRegPath);
 
     /*
      * Sanity checks.
@@ -1529,7 +1529,7 @@ NTSTATUS _stdcall VBoxDrvNtInternalDeviceControl(PDEVICE_OBJECT pDevObj, PIRP pI
 NTSTATUS _stdcall VBoxDrvNtRead(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 {
     Log(("VBoxDrvNtRead\n"));
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
 
     NTSTATUS rcNt;
     pIrp->IoStatus.Information = 0;
@@ -1664,7 +1664,7 @@ NTSTATUS _stdcall VBoxDrvNtNotSupportedStub(PDEVICE_OBJECT pDevObj, PIRP pIrp)
  */
 VOID _stdcall VBoxPowerDispatchCallback(PVOID pCallbackContext, PVOID pvArgument1, PVOID pvArgument2)
 {
-    /*PDEVICE_OBJECT pDevObj = (PDEVICE_OBJECT)pCallbackContext;*/ RT_NOREF1(pCallbackContext);
+    /*PDEVICE_OBJECT pDevObj = (PDEVICE_OBJECT)pCallbackContext;*/ RT_NOREF(pCallbackContext);
     Log(("VBoxPowerDispatchCallback: %x %x\n", pvArgument1, pvArgument2));
 
     /* Power change imminent? */
@@ -1695,9 +1695,9 @@ void VBOXCALL supdrvOSCleanupSession(PSUPDRVDEVEXT pDevExt, PSUPDRVSESSION pSess
         supdrvNtProtectRelease(pSession->pNtProtect);
         pSession->pNtProtect = NULL;
     }
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
 #else
-    RT_NOREF2(pDevExt, pSession);
+    RT_NOREF(pDevExt, pSession);
 #endif
 }
 
@@ -1847,7 +1847,7 @@ bool VBOXCALL   supdrvOSObjCanAccess(PSUPDRVOBJ pObj, PSUPDRVSESSION pSession, c
  */
 bool VBOXCALL  supdrvOSGetForcedAsyncTscMode(PSUPDRVDEVEXT pDevExt)
 {
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
     return g_Options.fOptForceAsyncTsc != 0;
 }
 
@@ -3006,7 +3006,7 @@ static bool supdrvNtProtectIsAssociatedCsrss(PSUPDRVNTPROTECT pNtProtect, PEPROC
  */
 static bool supdrvNtProtectIsFrigginThemesService(PSUPDRVNTPROTECT pNtProtect, PEPROCESS pAnnoyingProcess)
 {
-    RT_NOREF1(pNtProtect);
+    RT_NOREF(pNtProtect);
 
     /*
      * Check the process name.
@@ -3353,7 +3353,7 @@ supdrvNtProtectCallback_ProcessCreateNotify(HANDLE hParentPid, HANDLE hNewPid, B
 static VOID __stdcall
 supdrvNtProtectCallback_ProcessCreateNotifyEx(PEPROCESS pNewProcess, HANDLE hNewPid, PPS_CREATE_NOTIFY_INFO pInfo)
 {
-    RT_NOREF1(pNewProcess);
+    RT_NOREF(pNewProcess);
 
     /*
      * Is it a new process that needs protection?
@@ -3436,7 +3436,7 @@ AssertCompile((SUPDRV_NT_ALLOW_PROCESS_RIGHTS & SUPDRV_NT_EVIL_PROCESS_RIGHTS) =
 static OB_PREOP_CALLBACK_STATUS __stdcall
 supdrvNtProtectCallback_ProcessHandlePre(PVOID pvUser, POB_PRE_OPERATION_INFORMATION pOpInfo)
 {
-    Assert(pvUser == NULL); RT_NOREF1(pvUser);
+    Assert(pvUser == NULL); RT_NOREF(pvUser);
     Assert(pOpInfo->Operation == OB_OPERATION_HANDLE_CREATE || pOpInfo->Operation == OB_OPERATION_HANDLE_DUPLICATE);
     Assert(pOpInfo->ObjectType == *PsProcessType);
 
@@ -3688,7 +3688,7 @@ supdrvNtProtectCallback_ProcessHandlePre(PVOID pvUser, POB_PRE_OPERATION_INFORMA
 static VOID __stdcall
 supdrvNtProtectCallback_ProcessHandlePost(PVOID pvUser, POB_POST_OPERATION_INFORMATION pOpInfo)
 {
-    Assert(pvUser == NULL); RT_NOREF1(pvUser);
+    Assert(pvUser == NULL); RT_NOREF(pvUser);
     Assert(pOpInfo->Operation == OB_OPERATION_HANDLE_CREATE || pOpInfo->Operation == OB_OPERATION_HANDLE_DUPLICATE);
     Assert(pOpInfo->ObjectType == *PsProcessType);
 
@@ -3750,7 +3750,7 @@ AssertCompile((SUPDRV_NT_EVIL_THREAD_RIGHTS & SUPDRV_NT_ALLOWED_THREAD_RIGHTS) =
 static OB_PREOP_CALLBACK_STATUS __stdcall
 supdrvNtProtectCallback_ThreadHandlePre(PVOID pvUser, POB_PRE_OPERATION_INFORMATION pOpInfo)
 {
-    Assert(pvUser == NULL); RT_NOREF1(pvUser);
+    Assert(pvUser == NULL); RT_NOREF(pvUser);
     Assert(pOpInfo->Operation == OB_OPERATION_HANDLE_CREATE || pOpInfo->Operation == OB_OPERATION_HANDLE_DUPLICATE);
     Assert(pOpInfo->ObjectType == *PsThreadType);
 
@@ -3898,7 +3898,7 @@ supdrvNtProtectCallback_ThreadHandlePre(PVOID pvUser, POB_PRE_OPERATION_INFORMAT
 static VOID __stdcall
 supdrvNtProtectCallback_ThreadHandlePost(PVOID pvUser, POB_POST_OPERATION_INFORMATION pOpInfo)
 {
-    Assert(pvUser == NULL); RT_NOREF1(pvUser);
+    Assert(pvUser == NULL); RT_NOREF(pvUser);
     Assert(pOpInfo->Operation == OB_OPERATION_HANDLE_CREATE || pOpInfo->Operation == OB_OPERATION_HANDLE_DUPLICATE);
     Assert(pOpInfo->ObjectType == *PsThreadType);
 

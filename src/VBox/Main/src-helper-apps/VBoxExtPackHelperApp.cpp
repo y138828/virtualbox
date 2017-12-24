@@ -295,7 +295,7 @@ static RTEXITCODE SetExtPackPermissions(const char *pszDir)
          return RTMsgErrorExit(RTEXITCODE_FAILURE, "Failed to set directory permissions: %Rrc ('%s')", rc, pszDir);
 #else
      /** @todo TrustedInstaller? */
-     RT_NOREF1(pszDir);
+     RT_NOREF(pszDir);
 #endif
 
     return RTEXITCODE_SUCCESS;
@@ -339,7 +339,7 @@ static RTEXITCODE ValidateMemberOfExtPack(const char *pszName, RTVFSOBJTYPE enmT
  */
 static RTEXITCODE ValidateUnpackedExtPack(const char *pszDir, const char *pszTarball, const char *pszExtPackName)
 {
-    RT_NOREF2(pszTarball, pszExtPackName);
+    RT_NOREF(pszTarball, pszExtPackName);
     RTMsgInfo("Validating unpacked extension pack...");
 
     RTERRINFOSTATIC ErrInfo;
@@ -491,7 +491,7 @@ static RTEXITCODE UnpackExtPackFile(const char *pszName, const char *pszDstFilen
 static RTEXITCODE UnpackExtPack(RTFILE hTarballFile, const char *pszDirDst, RTMANIFEST hValidManifest,
                                 const char *pszTarball)
 {
-    RT_NOREF1(pszTarball);
+    RT_NOREF(pszTarball);
     RTMsgInfo("Unpacking extension pack into '%s'...", pszDirDst);
 
     /*
@@ -655,7 +655,7 @@ static RTEXITCODE DoInstall2(const char *pszBaseDir, const char *pszCertDir, con
                              const char *pszTarballDigest, RTFILE hTarballFile, RTFILE hTarballFileOpt,
                              const char *pszName, const char *pszMangledName, bool fReplace)
 {
-    RT_NOREF1(pszCertDir);
+    RT_NOREF(pszCertDir);
 
     /*
      * Do some basic validation of the tarball file.

@@ -1865,7 +1865,7 @@ int DragInstance::hgDrop(uint32_t u32xPos, uint32_t u32yPos, uint32_t uDefaultAc
     /** @todo r=bird: Please, stop using 'u32' as a prefix unless you've got a _real_ _important_ reason for needing the bit count. */
 
 
-    RT_NOREF3(u32xPos, u32yPos, uDefaultAction);
+    RT_NOREF(u32xPos, u32yPos, uDefaultAction);
     LogFlowThisFunc(("wndCur=%#x, wndProxy=%#x, mode=%RU32, state=%RU32\n", m_wndCur, m_wndProxy.hWnd, m_enmMode, m_enmState));
     LogFlowThisFunc(("u32xPos=%RU32, u32yPos=%RU32, uAction=%RU32\n", u32xPos, u32yPos, uDefaultAction));
 

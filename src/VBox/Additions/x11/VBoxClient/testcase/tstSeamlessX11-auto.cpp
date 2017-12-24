@@ -61,7 +61,7 @@ Display *XOpenDisplay(const char *display_name)
 extern "C" int XCloseDisplay(Display *display);
 int XCloseDisplay(Display *display)
 {
-    RT_NOREF1(display);
+    RT_NOREF(display);
     Assert(display == TEST_DISPLAY);
     return 0;
 }
@@ -105,7 +105,7 @@ int            XGetWindowProperty(Display *display, Window w, Atom property,
                                   unsigned long *bytes_after_return,
                                   unsigned char **prop_return)
 {
-    RT_NOREF2(display, long_length);
+    RT_NOREF(display, long_length);
     Assert(display == TEST_DISPLAY);
     Atom atomType = XInternAtom (display, WM_TYPE_PROP, true);
     Atom atomTypeDesktop = XInternAtom (display, WM_TYPE_DESKTOP_PROP, true);
@@ -152,7 +152,7 @@ Bool            XShapeQueryExtension(Display *dpy, int *event_basep, int *error_
 extern "C" int XSelectInput(Display *display, Window w, long event_mask);
 int            XSelectInput(Display *display, Window w, long event_mask)
 {
-    RT_NOREF3(display,  w,  event_mask);
+    RT_NOREF(display, w, event_mask);
     Assert(display == TEST_DISPLAY);
     return 0;
 }
@@ -161,7 +161,7 @@ int            XSelectInput(Display *display, Window w, long event_mask)
 extern "C" void XShapeSelectInput(Display *display, Window w, unsigned long event_mask);
 void            XShapeSelectInput(Display *display, Window w, unsigned long event_mask)
 {
-    RT_NOREF3(display, w, event_mask);
+    RT_NOREF(display, w, event_mask);
     Assert(display == TEST_DISPLAY);
 }
 
@@ -284,7 +284,7 @@ static Window g_SmlsEventWindow = 0;
 extern "C" int XNextEvent(Display *display, XEvent *event_return);
 int XNextEvent(Display *display, XEvent *event_return)
 {
-    RT_NOREF1(display);
+    RT_NOREF(display);
     Assert(display == TEST_DISPLAY);
     event_return->xany.type = g_SmlsEventType;
     event_return->xany.window = g_SmlsEventWindow;
@@ -313,7 +313,7 @@ Status XSendEvent(Display *display, Window w, Bool propagate,
 extern "C" int XFlush(Display *display);
 int XFlush(Display *display)
 {
-    RT_NOREF1(display);
+    RT_NOREF(display);
     Assert(display == TEST_DISPLAY);
     AssertFailedReturn(0);
 }
@@ -324,7 +324,7 @@ static bool g_fNotified = false;
 /** Dummy host call-back. */
 static void sendRegionUpdate(RTRECT *pRects, size_t cRects)
 {
-    RT_NOREF2(pRects, cRects);
+    RT_NOREF(pRects, cRects);
     g_fNotified = true;
 }
 

@@ -1408,7 +1408,7 @@ int vbsfReadLink(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLSTRING *pPath, uint
 int vbsfQueryFileInfo(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Handle, uint32_t flags,
                       uint32_t *pcbBuffer, uint8_t *pBuffer)
 {
-    RT_NOREF1(flags);
+    RT_NOREF(flags);
     uint32_t type = vbsfQueryHandleType(pClient, Handle);
     int            rc = VINF_SUCCESS;
     SHFLFSOBJINFO   *pObjInfo = (SHFLFSOBJINFO *)pBuffer;
@@ -1457,7 +1457,7 @@ int vbsfQueryFileInfo(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Handle,
 static int vbsfSetFileInfo(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Handle, uint32_t flags,
                            uint32_t *pcbBuffer, uint8_t *pBuffer)
 {
-    RT_NOREF1(flags);
+    RT_NOREF(flags);
     uint32_t type = vbsfQueryHandleType(pClient, Handle);
     int             rc = VINF_SUCCESS;
     SHFLFSOBJINFO  *pSFDEntry;
@@ -1562,7 +1562,7 @@ static int vbsfSetFileInfo(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Ha
 static int vbsfSetEndOfFile(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Handle, uint32_t flags,
                             uint32_t *pcbBuffer, uint8_t *pBuffer)
 {
-    RT_NOREF1(flags);
+    RT_NOREF(flags);
     SHFLFILEHANDLE *pHandle = vbsfQueryFileHandle(pClient, Handle);
     SHFLFSOBJINFO  *pSFDEntry;
 
@@ -1613,7 +1613,7 @@ static int vbsfSetEndOfFile(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE H
 
 int vbsfQueryVolumeInfo(SHFLCLIENTDATA *pClient, SHFLROOT root, uint32_t flags, uint32_t *pcbBuffer, uint8_t *pBuffer)
 {
-    RT_NOREF2(root, flags);
+    RT_NOREF(root, flags);
     int            rc = VINF_SUCCESS;
     SHFLVOLINFO   *pSFDEntry;
     char          *pszFullPath = NULL;
@@ -1788,7 +1788,7 @@ int vbsfLock(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Handle, uint64_t
 #else
     Log(("vbsfLock: Pretend success handle=%x\n", Handle));
     rc = VINF_SUCCESS;
-    RT_NOREF2(offset,  length);
+    RT_NOREF(offset, length);
 #endif
     return rc;
 }
@@ -1819,7 +1819,7 @@ int vbsfUnlock(SHFLCLIENTDATA *pClient, SHFLROOT root, SHFLHANDLE Handle, uint64
 #else
     Log(("vbsfUnlock: Pretend success handle=%x\n", Handle));
     rc = VINF_SUCCESS;
-    RT_NOREF2(offset,  length);
+    RT_NOREF(offset, length);
 #endif
 
     return rc;

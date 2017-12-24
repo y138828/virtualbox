@@ -419,7 +419,7 @@ static int dbgcEvalSubUnaryAny(PDBGC pDbgc, char *pszExpr, size_t cchExpr, PDBGC
 static int dbgcEvalSubCall(PDBGC pDbgc, char *pszFuncNm, size_t cchFuncNm, bool fExternal, char *pszArgs, size_t cchArgs,
                            DBGCVARCAT enmCategory, PDBGCVAR pResult)
 {
-    RT_NOREF1(enmCategory);
+    RT_NOREF(enmCategory);
 
     /*
      * Lookup the function.
@@ -1056,7 +1056,7 @@ static int dbgcProcessArguments(PDBGC pDbgc, const char *pszCmdOrFunc,
                                 PCDBGCVARDESC const paVarDescs, uint32_t const cVarDescs,
                                 char *pszArgs, unsigned *piArg, unsigned *pcArgs)
 {
-    RT_NOREF1(pszCmdOrFunc);
+    RT_NOREF(pszCmdOrFunc);
     Log2(("dbgcProcessArguments: pszCmdOrFunc=%s pszArgs='%s'\n", pszCmdOrFunc, pszArgs));
 
     /*

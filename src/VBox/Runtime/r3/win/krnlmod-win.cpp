@@ -124,7 +124,7 @@ static int rtKrnlModWinQueryKrnlMods(PRTL_PROCESS_MODULES *ppKrnlMods)
 static int rtKrnlModWinInfoCreate(PRTL_PROCESS_MODULE_INFORMATION pModInfo, PRTKRNLMODINFO phKrnlModInfo)
 {
     int rc = VINF_SUCCESS;
-    RT_NOREF2(pModInfo, phKrnlModInfo);
+    RT_NOREF(pModInfo, phKrnlModInfo);
     size_t cchFilePath = strlen((const char *)&pModInfo->FullPathName[0]) + 1;
     PRTKRNLMODINFOINT pThis = (PRTKRNLMODINFOINT)RTMemAllocZ(RT_OFFSETOF(RTKRNLMODINFOINT, achFilePath[cchFilePath]));
     if (RT_LIKELY(pThis))

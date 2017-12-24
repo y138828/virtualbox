@@ -1090,7 +1090,7 @@ static DECLCALLBACK(void) drvscsiUnmountNotify(PPDMIMOUNTNOTIFY pInterface)
  */
 static void drvscsiR3ResetOrSuspendOrPowerOff(PPDMDRVINS pDrvIns, PFNPDMDRVASYNCNOTIFY pfnAsyncNotify)
 {
-    RT_NOREF1(pfnAsyncNotify);
+    RT_NOREF(pfnAsyncNotify);
 
     PDRVSCSI pThis = PDMINS_2_DATA(pDrvIns, PDRVSCSI);
 

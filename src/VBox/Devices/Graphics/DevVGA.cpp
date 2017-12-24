@@ -2275,7 +2275,7 @@ int vgaR3UpdateDisplay(VGAState *s, unsigned xStart, unsigned yStart, unsigned c
 static int vmsvga_draw_graphic(PVGASTATE pThis, bool fFullUpdate, bool fFailOnResize, bool reset_dirty,
                                PDMIDISPLAYCONNECTOR *pDrv)
 {
-    RT_NOREF1(fFailOnResize);
+    RT_NOREF(fFailOnResize);
 
     uint32_t const cx        = pThis->svga.uWidth;
     uint32_t const cxDisplay = cx;
@@ -3586,7 +3586,7 @@ static int vgaLFBAccess(PVM pVM, PVGASTATE pThis, RTGCPHYS GCPhys, RTGCPTR GCPtr
 #else /* IN_RING3 : We don't have any virtual page address of the access here. */
         PDMCritSectLeave(&pThis->CritSect);
         Assert(GCPtr == 0);
-        RT_NOREF1(GCPtr);
+        RT_NOREF(GCPtr);
 #endif
         return VINF_SUCCESS;
     }

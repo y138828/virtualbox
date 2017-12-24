@@ -361,7 +361,7 @@ static int vgsvcGstCtrlProcessPollsetOnInput(PVBOXSERVICECTRLPROCESS pProcess, u
 static int vgsvcGstCtrlProcessHandleOutputError(PVBOXSERVICECTRLPROCESS pProcess,
                                                 uint32_t fPollEvt, PRTPIPE phPipeR, uint32_t idPollHnd)
 {
-    RT_NOREF1(fPollEvt);
+    RT_NOREF(fPollEvt);
     AssertPtrReturn(pProcess, VERR_INVALID_POINTER);
 
     if (!phPipeR)
@@ -1217,7 +1217,7 @@ static int vgsvcGstCtrlProcessCreateProcess(const char *pszExec, const char * co
                                             PRTPROCESS phProcess)
 {
 #ifndef RT_OS_WINDOWS
-    RT_NOREF1(pszDomain);
+    RT_NOREF(pszDomain);
 #endif
     AssertPtrReturn(pszExec, VERR_INVALID_PARAMETER);
     AssertPtrReturn(papszArgs, VERR_INVALID_PARAMETER);
@@ -2027,7 +2027,7 @@ static DECLCALLBACK(int) vgsvcGstCtrlProcessOnTerm(PVBOXSERVICECTRLPROCESS pThis
 static int vgsvcGstCtrlProcessRequestExV(PVBOXSERVICECTRLPROCESS pProcess, const PVBGLR3GUESTCTRLCMDCTX pHostCtx, bool fAsync,
                                          RTMSINTERVAL uTimeoutMS, PRTREQ pReq, PFNRT pfnFunction, unsigned cArgs, va_list Args)
 {
-    RT_NOREF1(pHostCtx);
+    RT_NOREF(pHostCtx);
     AssertPtrReturn(pProcess, VERR_INVALID_POINTER);
     /* pHostCtx is optional. */
     AssertPtrReturn(pfnFunction, VERR_INVALID_POINTER);

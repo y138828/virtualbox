@@ -164,7 +164,7 @@ static void Phy::regWriteDefault(PPHY pPhy, uint32_t index, uint16_t u16Value)
  */
 static uint16_t Phy::regReadForbidden(PPHY pPhy, uint32_t index)
 {
-    RT_NOREF2(pPhy, index);
+    RT_NOREF(pPhy, index);
     PhyLog(("PHY#%d At %02d read attempted from write-only '%s'\n",
             pPhy->iInstance, s_regMap[index].u32Address, s_regMap[index].pszName));
     return 0;

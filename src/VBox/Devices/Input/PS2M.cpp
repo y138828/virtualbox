@@ -952,7 +952,7 @@ static DECLCALLBACK(void *) ps2mQueryInterface(PPDMIBASE pInterface, const char 
 static int ps2mPutEventWorker(PPS2M pThis, int32_t dx, int32_t dy,
                               int32_t dz, int32_t dw, uint32_t fButtons)
 {
-    RT_NOREF1(dw);
+    RT_NOREF(dw);
     int             rc = VINF_SUCCESS;
 
     /* Update internal accumulators and button state. */
@@ -1153,7 +1153,7 @@ void PS2MReset(PPS2M pThis)
 
 void PS2MRelocate(PPS2M pThis, RTGCINTPTR offDelta, PPDMDEVINS pDevIns)
 {
-    RT_NOREF2(pDevIns, offDelta);
+    RT_NOREF(pDevIns, offDelta);
     LogFlowFunc(("Relocating PS2M\n"));
     pThis->pDelayTimerRC    = TMTimerRCPtr(pThis->pDelayTimerR3);
     pThis->pThrottleTimerRC = TMTimerRCPtr(pThis->pThrottleTimerR3);
@@ -1161,7 +1161,7 @@ void PS2MRelocate(PPS2M pThis, RTGCINTPTR offDelta, PPDMDEVINS pDevIns)
 
 int PS2MConstruct(PPS2M pThis, PPDMDEVINS pDevIns, void *pParent, int iInstance)
 {
-    RT_NOREF1(iInstance);
+    RT_NOREF(iInstance);
 
     LogFlowFunc(("iInstance=%d\n", iInstance));
 

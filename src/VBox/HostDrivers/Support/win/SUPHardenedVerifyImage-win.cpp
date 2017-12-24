@@ -507,7 +507,7 @@ static bool supHardNtViCheckIsOwnedByTrustedInstallerOrSimilar(HANDLE hFile, PCR
 
     SUP_DPRINTF(("%ls: Owner is not trusted installer (%.*Rhxs)\n",
                  pwszName, ((uint8_t *)pOwner)[1] /*SubAuthorityCount*/ * sizeof(ULONG) + 8, pOwner));
-    RT_NOREF1(pwszName);
+    RT_NOREF(pwszName);
     return false;
 }
 
@@ -748,7 +748,7 @@ DECLHIDDEN(bool) supHardViIsAppPatchDir(PCRTUTF16 pwszPath, uint32_t cwcName)
  */
 static int supHardNtViCheckIfNotSignedOk(RTLDRMOD hLdrMod, PCRTUTF16 pwszName, uint32_t fFlags, HANDLE hFile, int rc)
 {
-    RT_NOREF1(hLdrMod);
+    RT_NOREF(hLdrMod);
 
     if (fFlags & (SUPHNTVI_F_REQUIRE_BUILD_CERT | SUPHNTVI_F_REQUIRE_KERNEL_CODE_SIGNING))
         return rc;
@@ -1570,7 +1570,7 @@ static int supHardNtViCertStoreInit(PRTCRSTORE phStore,
                                     PRTERRINFO pErrInfo, const char *pszErrorTag)
 {
     AssertReturn(*phStore == NIL_RTCRSTORE, VERR_WRONG_ORDER);
-    RT_NOREF1(pszErrorTag);
+    RT_NOREF(pszErrorTag);
 
     int rc = RTCrStoreCreateInMem(phStore, cCerts1 + cCerts2);
     if (RT_FAILURE(rc))
@@ -2318,7 +2318,7 @@ static int supR3HardNtViNtToWinPath(PCRTUTF16 pwszNtName, PCRTUTF16 *ppwszWinPat
 static int supR3HardNtViCallWinVerifyTrust(HANDLE hFile, PCRTUTF16 pwszName, uint32_t fFlags, PRTERRINFO pErrInfo,
                                            PFNWINVERIFYTRUST pfnWinVerifyTrust, HRESULT *phrcWinVerifyTrust)
 {
-    RT_NOREF1(fFlags);
+    RT_NOREF(fFlags);
     if (phrcWinVerifyTrust)
         *phrcWinVerifyTrust = S_OK;
 
@@ -2443,7 +2443,7 @@ static int supR3HardNtViCallWinVerifyTrust(HANDLE hFile, PCRTUTF16 pwszName, uin
 static int supR3HardNtViCallWinVerifyTrustCatFile(HANDLE hFile, PCRTUTF16 pwszName, uint32_t fFlags, PRTERRINFO pErrInfo,
                                                   PFNWINVERIFYTRUST pfnWinVerifyTrust)
 {
-    RT_NOREF1(fFlags);
+    RT_NOREF(fFlags);
     SUP_DPRINTF(("supR3HardNtViCallWinVerifyTrustCatFile: hFile=%p pwszName=%ls\n", hFile, pwszName));
 
     /*

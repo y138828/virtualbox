@@ -278,7 +278,7 @@ static int parallelsCreateImage(PPARALLELSIMAGE pImage, uint64_t cbSize,
                                 PFNVDPROGRESS pfnProgress, void *pvUser,
                                 unsigned uPercentStart, unsigned uPercentSpan)
 {
-    RT_NOREF1(pszComment);
+    RT_NOREF(pszComment);
     int rc = VINF_SUCCESS;
     int32_t fOpen;
 

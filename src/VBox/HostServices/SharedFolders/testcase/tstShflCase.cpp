@@ -107,7 +107,7 @@ static const char *g_apszSUBDIREntries[] =
 
 int rtDirOpenFiltered(RTDIR *phDir, const char *pszPath, RTDIRFILTER enmFilter, uint32_t fFlags)
 {
-    RT_NOREF2(enmFilter, fFlags);
+    RT_NOREF(enmFilter, fFlags);
     if (!strcmp(pszPath, "c:\\*"))
         iDirList = 1;
     else if (!strcmp(pszPath, "c:\\test dir\\*"))
@@ -123,14 +123,14 @@ int rtDirOpenFiltered(RTDIR *phDir, const char *pszPath, RTDIRFILTER enmFilter, 
 
 int rtDirClose(RTDIR hDir)
 {
-    RT_NOREF1(hDir);
+    RT_NOREF(hDir);
     iDirFile = 0;
     return VINF_SUCCESS;
 }
 
 int rtDirReadEx(RTDIR hDir, PRTDIRENTRYEX pDirEntry, size_t *pcbDirEntry, RTFSOBJATTRADD enmAdditionalAttribs, uint32_t fFlags)
 {
-    RT_NOREF4(hDir, pcbDirEntry, enmAdditionalAttribs, fFlags);
+    RT_NOREF(hDir, pcbDirEntry, enmAdditionalAttribs, fFlags);
     switch (iDirList)
     {
         case 1:
@@ -157,7 +157,7 @@ int rtDirReadEx(RTDIR hDir, PRTDIRENTRYEX pDirEntry, size_t *pcbDirEntry, RTFSOB
 
 int rtPathQueryInfo(const char *pszPath, PRTFSOBJINFO pObjInfo, RTFSOBJATTRADD enmAdditionalAttribs)
 {
-    RT_NOREF2(pObjInfo, enmAdditionalAttribs);
+    RT_NOREF(pObjInfo, enmAdditionalAttribs);
     int cMax;
 
     /* first try g_apszDirs */

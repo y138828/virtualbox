@@ -534,7 +534,7 @@ VBOXNETCFGWIN_DECL(HRESULT) VBoxNetCfgWinRenameConnection(LPWSTR pGuid, PCWSTR N
 
 static BOOL vboxNetCfgWinRemoveAllNetDevicesOfIdCallback(HDEVINFO hDevInfo, PSP_DEVINFO_DATA pDev, PVOID pvContext)
 {
-    RT_NOREF1(pvContext);
+    RT_NOREF(pvContext);
     SP_REMOVEDEVICE_PARAMS rmdParams;
     memset(&rmdParams, 0, sizeof(SP_REMOVEDEVICE_PARAMS));
     rmdParams.ClassInstallHeader.cbSize = sizeof(SP_CLASSINSTALL_HEADER);
@@ -2362,7 +2362,7 @@ VBOXNETCFGWIN_DECL(HRESULT) VBoxNetCfgWinGenHostonlyConnectionName(PCWSTR DevNam
 
 static BOOL vboxNetCfgWinAdjustHostOnlyNetworkInterfacePriority(IN INetCfg *pNc, IN INetCfgComponent *pNcc, PVOID pContext)
 {
-    RT_NOREF1(pNc);
+    RT_NOREF(pNc);
     INetCfgComponentBindings *pNetCfgBindings;
     GUID *pGuid = (GUID*)pContext;
 

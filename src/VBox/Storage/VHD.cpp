@@ -1014,7 +1014,7 @@ static void vhdSetDiskGeometry(PVHDIMAGE pImage, uint64_t cbSize)
 
 static uint32_t vhdAllocateParentLocators(PVHDIMAGE pImage, VHDDynamicDiskHeader *pDDH, uint64_t u64Offset)
 {
-    RT_NOREF1(pImage);
+    RT_NOREF(pImage);
     PVHDPLE pLocator = pDDH->ParentLocatorEntry;
 
     /*
@@ -1134,7 +1134,7 @@ static int vhdCreateImage(PVHDIMAGE pImage, uint64_t cbSize,
                           PVDINTERFACEPROGRESS pIfProgress,
                           unsigned uPercentStart, unsigned uPercentSpan)
 {
-    RT_NOREF3(pszComment, pPCHSGeometry, pLCHSGeometry);
+    RT_NOREF(pszComment, pPCHSGeometry, pLCHSGeometry);
     VHDFooter Footer;
     RTTIMESPEC now;
 

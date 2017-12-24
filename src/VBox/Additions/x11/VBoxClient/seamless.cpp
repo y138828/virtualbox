@@ -190,7 +190,7 @@ int SeamlessMain::nextStateChangeEvent(void)
  */
 int SeamlessMain::x11MonitorThread(RTTHREAD hThreadSelf, void *pvUser)
 {
-    RT_NOREF1(hThreadSelf);
+    RT_NOREF(hThreadSelf);
     SeamlessMain *pHost = (SeamlessMain *)pvUser;
     int rc = VINF_SUCCESS;
 
@@ -302,7 +302,7 @@ static int init(struct VBCLSERVICE **ppInterface)
 
 static int run(struct VBCLSERVICE **ppInterface, bool fDaemonised)
 {
-    RT_NOREF1(fDaemonised);
+    RT_NOREF(fDaemonised);
     struct SEAMLESSSERVICE *pSelf = getClassFromInterface(ppInterface);
     int rc;
 

@@ -1890,7 +1890,7 @@ static int vmsvga3dInfoBmpWrite(const char *pszFilename, const void *pvBits, int
 
     return VINF_SUCCESS;
 #else /* !RT_OS_WINDOWS */
-    RT_NOREF6(pszFilename, pvBits, w, h, cbPixel, u32Mask);
+    RT_NOREF(pszFilename, pvBits, w, h, cbPixel, u32Mask);
     return VERR_NOT_SUPPORTED;
 #endif
 }

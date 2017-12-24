@@ -252,7 +252,7 @@ icmpwin_callback_apc(void *ctx, PIO_STATUS_BLOCK iob, ULONG reserved)
     struct pong *pong = (struct pong *)ctx;
     if (pong != NULL)
         icmpwin_callback(pong);
-    RT_NOREF2(iob, reserved);
+    RT_NOREF(iob, reserved);
 }
 
 

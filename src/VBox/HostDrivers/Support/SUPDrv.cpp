@@ -5790,7 +5790,7 @@ static int supdrvIOCtl_CallServiceModule(PSUPDRVDEVEXT pDevExt, PSUPDRVSESSION p
               rc, pReq->u.In.uOperation, pReq->Hdr.cbOut, pReq->u.In.u64Arg, RTProcSelf(), RTThreadNativeSelf()));
     return rc;
 #else  /* RT_OS_WINDOWS && !RT_ARCH_AMD64 && !DEBUG */
-    RT_NOREF3(pDevExt, pSession, pReq);
+    RT_NOREF(pDevExt, pSession, pReq);
     return VERR_NOT_IMPLEMENTED;
 #endif /* RT_OS_WINDOWS && !RT_ARCH_AMD64 && !DEBUG */
 }
@@ -5980,10 +5980,10 @@ static int supdrvIOCtl_MsrProber(PSUPDRVDEVEXT pDevExt, PSUPMSRPROBER pReq)
         default:
             return VERR_INVALID_FUNCTION;
     }
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
     return rc;
 #else
-    RT_NOREF2(pDevExt, pReq);
+    RT_NOREF(pDevExt, pReq);
     return VERR_NOT_IMPLEMENTED;
 #endif
 }

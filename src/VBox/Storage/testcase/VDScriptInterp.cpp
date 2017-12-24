@@ -162,7 +162,7 @@ typedef VDSCRIPTINTERPCTRL *PVDSCRIPTINTERPCTRL;
  */
 static int vdScriptInterpreterError(PVDSCRIPTINTERPCTX pThis, int rc, RT_SRC_POS_DECL, const char *pszFmt, ...)
 {
-    RT_NOREF1(pThis); RT_SRC_POS_NOREF();
+    RT_NOREF(pThis); RT_SRC_POS_NOREF();
     va_list va;
     va_start(va, pszFmt);
     RTPrintfV(pszFmt, va);

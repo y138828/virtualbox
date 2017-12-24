@@ -4234,7 +4234,7 @@ static void ohciR3RhPortPower(POHCIROOTHUB pRh, unsigned iPort, bool fPowerUp)
  */
 static int HcRevision_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF2(pThis, iReg);
+    RT_NOREF(pThis, iReg);
     Log2(("HcRevision_r() -> 0x10\n"));
     *pu32Value = 0x10; /* OHCI revision 1.0, no emulation. */
     return VINF_SUCCESS;
@@ -4245,7 +4245,7 @@ static int HcRevision_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcRevision_w(POHCI pThis, uint32_t iReg, uint32_t u32Value)
 {
-    RT_NOREF3(pThis, iReg, u32Value);
+    RT_NOREF(pThis, iReg, u32Value);
     Log2(("HcRevision_w(%#010x) - denied\n", u32Value));
     AssertMsgFailed(("Invalid operation!!! u32Value=%#010x\n", u32Value));
     return VINF_SUCCESS;
@@ -4256,7 +4256,7 @@ static int HcRevision_w(POHCI pThis, uint32_t iReg, uint32_t u32Value)
  */
 static int HcControl_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t ctl = pThis->ctl;
     Log2(("HcControl_r -> %#010x - CBSR=%d PLE=%d IE=%d CLE=%d BLE=%d HCFS=%#x IR=%d RWC=%d RWE=%d\n",
           ctl, ctl & 3, (ctl >> 2) & 1, (ctl >> 3) & 1, (ctl >> 4) & 1, (ctl >> 5) & 1, (ctl >> 6) & 3, (ctl >> 8) & 1,
@@ -4270,7 +4270,7 @@ static int HcControl_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcControl_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
 
     /* log it. */
     uint32_t chg = pThis->ctl ^ val; NOREF(chg);
@@ -4343,7 +4343,7 @@ static int HcCommandStatus_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
     Log2(("HcCommandStatus_r() -> %#010x - HCR=%d CLF=%d BLF=%d OCR=%d SOC=%d\n",
           status, status & 1, (status >> 1) & 1, (status >> 2) & 1, (status >> 3) & 1, (status >> 16) & 3));
     *pu32Value = status;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4352,7 +4352,7 @@ static int HcCommandStatus_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcCommandStatus_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
 
     /* log */
     uint32_t chg = pThis->status ^ val; NOREF(chg);
@@ -4398,7 +4398,7 @@ static int HcInterruptStatus_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
           val, val & 1, (val >> 1) & 1, (val >> 2) & 1, (val >> 3) & 1, (val >> 4) & 1, (val >> 5) & 1,
           (val >> 6) & 1, (val >> 30) & 1));
     *pu32Value = val;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4407,7 +4407,7 @@ static int HcInterruptStatus_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcInterruptStatus_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
 
     uint32_t res = pThis->intr_status & ~val;
     uint32_t chg = pThis->intr_status ^ res; NOREF(chg);
@@ -4449,7 +4449,7 @@ static int HcInterruptEnable_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
           val, val & 1, (val >> 1) & 1, (val >> 2) & 1, (val >> 3) & 1, (val >> 4) & 1, (val >> 5) & 1,
           (val >> 6) & 1, (val >> 30) & 1, (val >> 31) & 1));
     *pu32Value = val;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4458,7 +4458,7 @@ static int HcInterruptEnable_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcInterruptEnable_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t res = pThis->intr | val;
     uint32_t chg = pThis->intr ^ res; NOREF(chg);
 
@@ -4501,7 +4501,7 @@ static int HcInterruptDisable_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value
           (val >> 6) & 1, (val >> 30) & 1, (val >> 31) & 1));
 
     *pu32Value = val;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4510,7 +4510,7 @@ static int HcInterruptDisable_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value
  */
 static int HcInterruptDisable_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t res = pThis->intr & ~val;
     uint32_t chg = pThis->intr ^ res; NOREF(chg);
 
@@ -4545,7 +4545,7 @@ static int HcHCCA_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
     Log2(("HcHCCA_r() -> %#010x\n", pThis->hcca));
     *pu32Value = pThis->hcca;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4556,7 +4556,7 @@ static int HcHCCA_w(POHCI pThis, uint32_t iReg, uint32_t Value)
 {
     Log2(("HcHCCA_w(%#010x) - old=%#010x new=%#010x\n", Value, pThis->hcca, Value & OHCI_HCCA_MASK));
     pThis->hcca = Value & OHCI_HCCA_MASK;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4567,7 +4567,7 @@ static int HcPeriodCurrentED_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
     Log2(("HcPeriodCurrentED_r() -> %#010x\n", pThis->per_cur));
     *pu32Value = pThis->per_cur;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4581,7 +4581,7 @@ static int HcPeriodCurrentED_w(POHCI pThis, uint32_t iReg, uint32_t val)
     //AssertMsgFailed(("HCD (Host Controller Driver) should not write to HcPeriodCurrentED! val=%#010x (old=%#010x)\n", val, pThis->per_cur));
     AssertMsg(!(val & 7), ("Invalid alignment, val=%#010x\n", val));
     pThis->per_cur = val & ~7;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4592,7 +4592,7 @@ static int HcControlHeadED_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
     Log2(("HcControlHeadED_r() -> %#010x\n", pThis->ctrl_head));
     *pu32Value = pThis->ctrl_head;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4604,7 +4604,7 @@ static int HcControlHeadED_w(POHCI pThis, uint32_t iReg, uint32_t val)
     Log2(("HcControlHeadED_w(%#010x) - old=%#010x new=%#010x\n", val, pThis->ctrl_head, val & ~7));
     AssertMsg(!(val & 7), ("Invalid alignment, val=%#010x\n", val));
     pThis->ctrl_head = val & ~7;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4615,7 +4615,7 @@ static int HcControlCurrentED_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value
 {
     Log2(("HcControlCurrentED_r() -> %#010x\n", pThis->ctrl_cur));
     *pu32Value = pThis->ctrl_cur;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4628,7 +4628,7 @@ static int HcControlCurrentED_w(POHCI pThis, uint32_t iReg, uint32_t val)
     AssertMsg(!(pThis->ctl & OHCI_CTL_CLE), ("Illegal write! HcControl.ControlListEnabled is set! val=%#010x\n", val));
     AssertMsg(!(val & 7), ("Invalid alignment, val=%#010x\n", val));
     pThis->ctrl_cur = val & ~7;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4639,7 +4639,7 @@ static int HcBulkHeadED_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
     Log2(("HcBulkHeadED_r() -> %#010x\n", pThis->bulk_head));
     *pu32Value = pThis->bulk_head;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4651,7 +4651,7 @@ static int HcBulkHeadED_w(POHCI pThis, uint32_t iReg, uint32_t val)
     Log2(("HcBulkHeadED_w(%#010x) - old=%#010x new=%#010x\n", val, pThis->bulk_head, val & ~7));
     AssertMsg(!(val & 7), ("Invalid alignment, val=%#010x\n", val));
     pThis->bulk_head = val & ~7; /** @todo The ATI OHCI controller on my machine enforces 16-byte address alignment. */
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4662,7 +4662,7 @@ static int HcBulkCurrentED_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
     Log2(("HcBulkCurrentED_r() -> %#010x\n", pThis->bulk_cur));
     *pu32Value = pThis->bulk_cur;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4675,7 +4675,7 @@ static int HcBulkCurrentED_w(POHCI pThis, uint32_t iReg, uint32_t val)
     AssertMsg(!(pThis->ctl & OHCI_CTL_BLE), ("Illegal write! HcControl.BulkListEnabled is set! val=%#010x\n", val));
     AssertMsg(!(val & 7), ("Invalid alignment, val=%#010x\n", val));
     pThis->bulk_cur = val & ~7;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4687,7 +4687,7 @@ static int HcDoneHead_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
     Log2(("HcDoneHead_r() -> 0x%#08x\n", pThis->done));
     *pu32Value = pThis->done;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4696,7 +4696,7 @@ static int HcDoneHead_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcDoneHead_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF3(pThis, iReg, val);
+    RT_NOREF(pThis, iReg, val);
     Log2(("HcDoneHead_w(0x%#08x) - denied!!!\n", val));
     /*AssertMsgFailed(("Illegal operation!!! val=%#010x\n", val)); - OS/2 does this */
     return VINF_SUCCESS;
@@ -4712,7 +4712,7 @@ static int HcFmInterval_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
     Log2(("HcFmInterval_r() -> 0x%#08x - FI=%d FSMPS=%d FIT=%d\n",
           val, val & 0x3fff, (val >> 16) & 0x7fff, val >> 31));
     *pu32Value = val;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4721,7 +4721,7 @@ static int HcFmInterval_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcFmInterval_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
 
     /* log */
     uint32_t chg = val ^ ((pThis->fit << 31) | (pThis->fsmps << 16) | pThis->fi); NOREF(chg);
@@ -4748,7 +4748,7 @@ static int HcFmInterval_w(POHCI pThis, uint32_t iReg, uint32_t val)
  */
 static int HcFmRemaining_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t Value = pThis->frt << 31;
     if ((pThis->ctl & OHCI_CTL_HCFS) == OHCI_USB_OPERATIONAL)
     {
@@ -4775,7 +4775,7 @@ static int HcFmRemaining_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcFmRemaining_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF3(pThis, iReg, val);
+    RT_NOREF(pThis, iReg, val);
     Log2(("HcFmRemaining_w(%#010x) - denied\n", val));
     AssertMsgFailed(("Invalid operation!!! val=%#010x\n", val));
     return VINF_SUCCESS;
@@ -4786,7 +4786,7 @@ static int HcFmRemaining_w(POHCI pThis, uint32_t iReg, uint32_t val)
  */
 static int HcFmNumber_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t val = (uint16_t)pThis->HcFmNumber;
     Log2(("HcFmNumber_r() -> %#010x - FN=%#x(%d) (32-bit=%#x(%d))\n", val, val, val, pThis->HcFmNumber, pThis->HcFmNumber));
     *pu32Value = val;
@@ -4798,7 +4798,7 @@ static int HcFmNumber_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcFmNumber_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF3(pThis, iReg, val);
+    RT_NOREF(pThis, iReg, val);
     Log2(("HcFmNumber_w(%#010x) - denied\n", val));
     AssertMsgFailed(("Invalid operation!!! val=%#010x\n", val));
     return VINF_SUCCESS;
@@ -4810,7 +4810,7 @@ static int HcFmNumber_w(POHCI pThis, uint32_t iReg, uint32_t val)
  */
 static int HcPeriodicStart_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     Log2(("HcPeriodicStart_r() -> %#010x - PS=%d\n", pThis->pstart, pThis->pstart & 0x3fff));
     *pu32Value = pThis->pstart;
     return VINF_SUCCESS;
@@ -4822,7 +4822,7 @@ static int HcPeriodicStart_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcPeriodicStart_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     Log2(("HcPeriodicStart_w(%#010x) => PS=%d\n", val, val & 0x3fff));
     if (val & ~0x3fff)
         Log2(("Unknown bits %#x are set!!!\n", val & ~0x3fff));
@@ -4835,7 +4835,7 @@ static int HcPeriodicStart_w(POHCI pThis, uint32_t iReg, uint32_t val)
  */
 static int HcLSThreshold_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF2(pThis, iReg);
+    RT_NOREF(pThis, iReg);
     Log2(("HcLSThreshold_r() -> %#010x\n", OHCI_LS_THRESH));
     *pu32Value = OHCI_LS_THRESH;
     return VINF_SUCCESS;
@@ -4855,7 +4855,7 @@ static int HcLSThreshold_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcLSThreshold_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF3(pThis, iReg, val);
+    RT_NOREF(pThis, iReg, val);
     Log2(("HcLSThreshold_w(%#010x) => LST=0x%03x(%d)\n", val, val & 0x0fff, val & 0x0fff));
     AssertMsg(val == OHCI_LS_THRESH,
               ("HCD tried to write bad LS threshold: 0x%x (see function header)\n", val));
@@ -4868,7 +4868,7 @@ static int HcLSThreshold_w(POHCI pThis, uint32_t iReg, uint32_t val)
  */
 static int HcRhDescriptorA_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t val = pThis->RootHub.desc_a;
 #if 0 /* annoying */
     Log2(("HcRhDescriptorA_r() -> %#010x - NDP=%d PSM=%d NPS=%d DT=%d OCPM=%d NOCP=%d POTGT=%#x\n",
@@ -4884,7 +4884,7 @@ static int HcRhDescriptorA_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcRhDescriptorA_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t chg = val ^ pThis->RootHub.desc_a; NOREF(chg);
     Log2(("HcRhDescriptorA_w(%#010x) => %sNDP=%d %sPSM=%d %sNPS=%d %sDT=%d %sOCPM=%d %sNOCP=%d %sPOTGT=%#x - %sPowerSwitching Set%sPower\n",
           val,
@@ -4922,7 +4922,7 @@ static int HcRhDescriptorB_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
     Log2(("HcRhDescriptorB_r() -> %#010x - DR=0x%04x PPCM=0x%04x\n",
           val, val & 0xffff, val >> 16));
     *pu32Value = val;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -4931,7 +4931,7 @@ static int HcRhDescriptorB_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
  */
 static int HcRhDescriptorB_w(POHCI pThis, uint32_t iReg, uint32_t val)
 {
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     uint32_t chg = pThis->RootHub.desc_b ^ val; NOREF(chg);
     Log2(("HcRhDescriptorB_w(%#010x) => %sDR=0x%04x %sPPCM=0x%04x\n",
           val,
@@ -4955,7 +4955,7 @@ static int HcRhStatus_r(PCOHCI pThis, uint32_t iReg, uint32_t *pu32Value)
         Log2(("HcRhStatus_r() -> %#010x - LPS=%d OCI=%d DRWE=%d LPSC=%d OCIC=%d CRWE=%d\n",
               val, val & 1, (val >> 1) & 1, (val >> 15) & 1, (val >> 16) & 1, (val >> 17) & 1, (val >> 31) & 1));
     *pu32Value = val;
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 }
 
@@ -5013,10 +5013,10 @@ static int HcRhStatus_w(POHCI pThis, uint32_t iReg, uint32_t val)
           (chg >> 16) & 1 ? "*" : "", (val >> 16) & 1,
           (chg >> 17) & 1 ? "*" : "", (val >> 17) & 1,
           (chg >> 31) & 1 ? "*" : "", (val >> 31) & 1));
-    RT_NOREF1(iReg);
+    RT_NOREF(iReg);
     return VINF_SUCCESS;
 #else  /* !IN_RING3 */
-    RT_NOREF3(pThis, iReg, val);
+    RT_NOREF(pThis, iReg, val);
     return VINF_IOM_R3_MMIO_WRITE;
 #endif /* !IN_RING3 */
 }
@@ -5248,7 +5248,7 @@ static int HcRhPortStatus_w(POHCI pThis, uint32_t iReg, uint32_t val)
     }
     return VINF_SUCCESS;
 #else /* !IN_RING3 */
-    RT_NOREF3(pThis, iReg, val);
+    RT_NOREF(pThis, iReg, val);
     return VINF_IOM_R3_MMIO_WRITE;
 #endif /* !IN_RING3 */
 }

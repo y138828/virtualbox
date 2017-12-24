@@ -4500,7 +4500,7 @@ static uint32_t ataStatusRead(PATACONTROLLER pCtl, uint32_t addr)
 {
     ATADevState *s = &pCtl->aIfs[pCtl->iSelectedIf];
     uint32_t val;
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
 
     /// @todo The handler should not be even registered if there
     // is no device on an IDE channel.
@@ -4516,7 +4516,7 @@ static uint32_t ataStatusRead(PATACONTROLLER pCtl, uint32_t addr)
 
 static int ataControlWrite(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 {
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
 #ifndef IN_RING3
     if ((val ^ pCtl->aIfs[0].uATARegDevCtl) & ATA_DEVCTL_RESET)
         return VINF_IOM_R3_IOPORT_WRITE; /* The RESET stuff is too complicated for RC+R0. */
@@ -5853,7 +5853,7 @@ static DECLCALLBACK(int) ataR3AsyncIOThread(RTTHREAD hThreadSelf, void *pvUser)
 static uint32_t ataBMDMACmdReadB(PATACONTROLLER pCtl, uint32_t addr)
 {
     uint32_t val = pCtl->BmDma.u8Cmd;
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#04x\n", __FUNCTION__, addr, val));
     return val;
 }
@@ -5861,7 +5861,7 @@ static uint32_t ataBMDMACmdReadB(PATACONTROLLER pCtl, uint32_t addr)
 
 static void ataBMDMACmdWriteB(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 {
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#04x\n", __FUNCTION__, addr, val));
     if (!(val & BM_CMD_START))
     {
@@ -5905,14 +5905,14 @@ static void ataBMDMACmdWriteB(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 static uint32_t ataBMDMAStatusReadB(PATACONTROLLER pCtl, uint32_t addr)
 {
     uint32_t val = pCtl->BmDma.u8Status;
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#04x\n", __FUNCTION__, addr, val));
     return val;
 }
 
 static void ataBMDMAStatusWriteB(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 {
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#04x\n", __FUNCTION__, addr, val));
     pCtl->BmDma.u8Status =    (val & (BM_STATUS_D0DMA | BM_STATUS_D1DMA))
                            |  (pCtl->BmDma.u8Status & BM_STATUS_DMAING)
@@ -5922,21 +5922,21 @@ static void ataBMDMAStatusWriteB(PATACONTROLLER pCtl, uint32_t addr, uint32_t va
 static uint32_t ataBMDMAAddrReadL(PATACONTROLLER pCtl, uint32_t addr)
 {
     uint32_t val = (uint32_t)pCtl->BmDma.GCPhysAddr;
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#010x\n", __FUNCTION__, addr, val));
     return val;
 }
 
 static void ataBMDMAAddrWriteL(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 {
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#010x\n", __FUNCTION__, addr, val));
     pCtl->BmDma.GCPhysAddr = val & ~3;
 }
 
 static void ataBMDMAAddrWriteLowWord(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 {
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     Log2(("%s: addr=%#06x val=%#010x\n", __FUNCTION__, addr, val));
     pCtl->BmDma.GCPhysAddr = (pCtl->BmDma.GCPhysAddr & 0xFFFF0000) | RT_LOWORD(val & ~3);
 
@@ -5945,7 +5945,7 @@ static void ataBMDMAAddrWriteLowWord(PATACONTROLLER pCtl, uint32_t addr, uint32_
 static void ataBMDMAAddrWriteHighWord(PATACONTROLLER pCtl, uint32_t addr, uint32_t val)
 {
     Log2(("%s: addr=%#06x val=%#010x\n", __FUNCTION__, addr, val));
-    RT_NOREF1(addr);
+    RT_NOREF(addr);
     pCtl->BmDma.GCPhysAddr = (RT_LOWORD(val) << 16) | RT_LOWORD(pCtl->BmDma.GCPhysAddr);
 }
 

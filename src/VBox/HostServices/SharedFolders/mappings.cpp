@@ -486,7 +486,7 @@ int vbsfMappingsQueryName(PSHFLCLIENTDATA pClient, SHFLROOT root, SHFLSTRING *pS
  */
 int vbsfMappingsQueryWritable(PSHFLCLIENTDATA pClient, SHFLROOT root, bool *fWritable)
 {
-    RT_NOREF1(pClient);
+    RT_NOREF(pClient);
     int rc = VINF_SUCCESS;
 
     LogFlow(("vbsfMappingsQueryWritable: pClient = %p, root = %d\n", pClient, root));
@@ -507,7 +507,7 @@ int vbsfMappingsQueryWritable(PSHFLCLIENTDATA pClient, SHFLROOT root, bool *fWri
 
 int vbsfMappingsQueryAutoMount(PSHFLCLIENTDATA pClient, SHFLROOT root, bool *fAutoMount)
 {
-    RT_NOREF1(pClient);
+    RT_NOREF(pClient);
     int rc = VINF_SUCCESS;
 
     LogFlow(("vbsfMappingsQueryAutoMount: pClient = %p, root = %d\n", pClient, root));
@@ -527,7 +527,7 @@ int vbsfMappingsQueryAutoMount(PSHFLCLIENTDATA pClient, SHFLROOT root, bool *fAu
 
 int vbsfMappingsQuerySymlinksCreate(PSHFLCLIENTDATA pClient, SHFLROOT root, bool *fSymlinksCreate)
 {
-    RT_NOREF1(pClient);
+    RT_NOREF(pClient);
     int rc = VINF_SUCCESS;
 
     LogFlow(("vbsfMappingsQueryAutoMount: pClient = %p, root = %d\n", pClient, root));
@@ -639,7 +639,7 @@ void testUnmapFolder(RTTEST hTest)
 #endif
 int vbsfUnmapFolder(PSHFLCLIENTDATA pClient, SHFLROOT root)
 {
-    RT_NOREF1(pClient);
+    RT_NOREF(pClient);
     int rc = VINF_SUCCESS;
 
     MAPPING *pFolderMapping = vbsfMappingGetByRoot(root);

@@ -77,7 +77,7 @@ typedef struct UTSGADGETHOSTTYPEINT
  */
 static int usbGadgetHostUsbIpBindUnbind(PUTSGADGETHOSTTYPEINT pThis, UTSGADGET hGadget, bool fBind)
 {
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
     uint32_t uBusId, uDevId;
     char aszBus[32];
 

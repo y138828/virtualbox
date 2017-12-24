@@ -622,7 +622,7 @@ static int supR3HardenedVerifyFileSignature(PCSUPINSTFILE pFile, PSUPVERIFIEDFIL
     return rc;
 
 # else  /* Not checking signatures. */
-    RT_NOREF4(pFile, pVerified, fFatal, fLeaveFileOpen);
+    RT_NOREF(pFile, pVerified, fFatal, fLeaveFileOpen);
     return VINF_SUCCESS;
 # endif /* Not checking signatures. */
 }
@@ -645,7 +645,7 @@ static int supR3HardenedVerifyFileSignature(PCSUPINSTFILE pFile, PSUPVERIFIEDFIL
 static int supR3HardenedVerifyFileInternal(int iFile, bool fFatal, bool fLeaveFileOpen, bool fVerifyAll)
 {
 #ifndef RT_OS_WINDOWS
-    RT_NOREF1(fVerifyAll);
+    RT_NOREF(fVerifyAll);
 #endif
     PCSUPINSTFILE pFile = &g_aSupInstallFiles[iFile];
     PSUPVERIFIEDFILE pVerified = &g_aSupVerifiedFiles[iFile];
@@ -1293,7 +1293,7 @@ static int supR3HardenedQueryFsObjectByPath(char const *pszPath, PSUPR3HARDENEDF
 #if defined(RT_OS_WINDOWS)
     /** @todo Windows hardening. */
     pFsObjState->chTodo = 0;
-    RT_NOREF2(pszPath, pErrInfo);
+    RT_NOREF(pszPath, pErrInfo);
     return VINF_SUCCESS;
 
 #else
@@ -1336,7 +1336,7 @@ static int supR3HardenedQueryFsObjectByHandle(RTHCUINTPTR hNative, PSUPR3HARDENE
 #if defined(RT_OS_WINDOWS)
     /** @todo Windows hardening. */
     pFsObjState->chTodo = 0;
-    RT_NOREF3(hNative, pszPath, pErrInfo);
+    RT_NOREF(hNative, pszPath, pErrInfo);
     return VINF_SUCCESS;
 
 #else
@@ -1373,11 +1373,11 @@ static int supR3HardenedIsSameFsObject(PCSUPR3HARDENEDFSOBJSTATE pFsObjState1, P
 {
 #if defined(RT_OS_WINDOWS)
     /** @todo Windows hardening. */
-    RT_NOREF4(pFsObjState1, pFsObjState2, pszPath, pErrInfo);
+    RT_NOREF(pFsObjState1, pFsObjState2, pszPath, pErrInfo);
     return VINF_SUCCESS;
 
 #elif defined(RT_OS_OS2)
-    RT_NOREF4(pFsObjState1, pFsObjState2, pszPath, pErrInfo);
+    RT_NOREF(pFsObjState1, pFsObjState2, pszPath, pErrInfo);
     return VINF_SUCCESS;
 
 #else

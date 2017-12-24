@@ -119,7 +119,7 @@ static void pam_vbox_writesyslog(char *pszBuf)
  */
 static void pam_vbox_error(pam_handle_t *hPAM, const char *pszFormat, ...)
 {
-    RT_NOREF1(hPAM);
+    RT_NOREF(hPAM);
     va_list va;
     char *buf;
     va_start(va, pszFormat);
@@ -142,7 +142,7 @@ static void pam_vbox_error(pam_handle_t *hPAM, const char *pszFormat, ...)
  */
 static void pam_vbox_log(pam_handle_t *hPAM, const char *pszFormat, ...)
 {
-    RT_NOREF1(hPAM);
+    RT_NOREF(hPAM);
     if (g_verbosity)
     {
         va_list va;
@@ -307,7 +307,7 @@ static int pam_vbox_init(pam_handle_t *hPAM)
  */
 static void pam_vbox_shutdown(pam_handle_t *hPAM)
 {
-    RT_NOREF1(hPAM);
+    RT_NOREF(hPAM);
     VbglR3Term();
 }
 
@@ -680,7 +680,7 @@ static DECLCALLBACK(int) pam_vbox_wait_thread(RTTHREAD hThreadSelf, void *pvUser
  */
 static int pam_vbox_wait_for_creds(pam_handle_t *hPAM, uint32_t uClientID, uint32_t uTimeoutMS)
 {
-    RT_NOREF1(uClientID);
+    RT_NOREF(uClientID);
     PAMVBOXTHREAD threadData;
     threadData.hPAM = hPAM;
     threadData.uTimeoutMS = uTimeoutMS;

@@ -617,7 +617,7 @@ static int vgdrvSetBalloonSizeFromUser(PVBOXGUESTDEVEXT pDevExt, PVBOXGUESTSESSI
     PRTR0MEMOBJ pMemObj = NULL;
     int rc = VINF_SUCCESS;
     uint32_t i;
-    RT_NOREF1(pSession);
+    RT_NOREF(pSession);
 
     if (fInflate)
     {
@@ -917,7 +917,7 @@ int VGDrvCommonReinitDevExtAfterHibernation(PVBOXGUESTDEVEXT pDevExt, VBOXOSTYPE
     else
         Log(("VGDrvCommonReinitDevExtAfterHibernation: could not report guest information to host, rc=%Rrc\n", rc));
     LogFlow(("VGDrvCommonReinitDevExtAfterHibernation: returned with rc=%Rrc\n", rc));
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
     return rc;
 }
 
@@ -1902,7 +1902,7 @@ static int vgdrvIoCtl_DriverVersionInfo(PVBOXGUESTDEVEXT pDevExt, PVBOXGUESTSESS
     int rc;
     LogFlow(("VBGL_IOCTL_DRIVER_VERSION_INFO: uReqVersion=%#x uMinVersion=%#x uReserved1=%#x uReserved2=%#x\n",
              pReq->u.In.uReqVersion, pReq->u.In.uMinVersion, pReq->u.In.uReserved1, pReq->u.In.uReserved2));
-    RT_NOREF2(pDevExt, pSession);
+    RT_NOREF(pDevExt, pSession);
 
     /*
      * Input validation.
@@ -2291,7 +2291,7 @@ static int vgdrvCheckIfVmmReqIsAllowed(PVBOXGUESTDEVEXT pDevExt, PVBOXGUESTSESSI
     {
         kLevel_Invalid, kLevel_NoOne, kLevel_OnlyVBoxGuest, kLevel_OnlyKernel, kLevel_TrustedUsers, kLevel_AllUsers
     } enmRequired;
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
 
     switch (enmType)
     {
@@ -2946,7 +2946,7 @@ static int vgdrvIoCtl_WriteCoreDump(PVBOXGUESTDEVEXT pDevExt, PVBGLIOCWRITECORED
     VMMDevReqWriteCoreDump *pReq = NULL;
     int rc;
     LogFlow(("VBOXGUEST_IOCTL_WRITE_CORE_DUMP\n"));
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
 
     rc = VbglR0GRAlloc((VMMDevRequestHeader **)&pReq, sizeof(*pReq), VMMDevReq_WriteCoreDump);
     if (RT_SUCCESS(rc))
@@ -3113,7 +3113,7 @@ static int vgdrvResetEventFilterOnHost(PVBOXGUESTDEVEXT pDevExt, uint32_t fFixed
             LogRelFunc(("failed with rc=%Rrc\n", rc));
         VbglR0GRFree(&pReq->header);
     }
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
     return rc;
 }
 
@@ -3265,7 +3265,7 @@ static int vgdrvResetMouseStatusOnHost(PVBOXGUESTDEVEXT pDevExt)
             LogRelFunc(("failed with rc=%Rrc\n", rc));
         VbglR0GRFree(&pReq->header);
     }
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
     return rc;
 }
 
@@ -3463,7 +3463,7 @@ static int vgdrvResetCapabilitiesOnHost(PVBOXGUESTDEVEXT pDevExt)
             LogRelFunc(("failed with rc=%Rrc\n", rc));
         VbglR0GRFree(&pReq->header);
     }
-    RT_NOREF1(pDevExt);
+    RT_NOREF(pDevExt);
     return rc;
 }
 

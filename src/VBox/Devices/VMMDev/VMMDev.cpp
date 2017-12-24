@@ -2427,7 +2427,7 @@ static int vmmdevReqHandler_DebugIsPageShared(PVMMDEV pThis, VMMDevRequestHeader
 # ifdef DEBUG
     return PGMR3SharedModuleGetPageState(PDMDevHlpGetVM(pThis->pDevIns), pReq->GCPtrPage, &pReq->fShared, &pReq->uPageFlags);
 # else
-    RT_NOREF1(pThis);
+    RT_NOREF(pThis);
     return VERR_NOT_IMPLEMENTED;
 # endif
 }

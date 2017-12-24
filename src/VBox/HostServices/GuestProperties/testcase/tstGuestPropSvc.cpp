@@ -770,7 +770,7 @@ static void setupAsyncNotification(VBOXHGCMSVCFNTABLE *pTable)
  */
 static void testAsyncNotification(VBOXHGCMSVCFNTABLE *pTable)
 {
-    RT_NOREF1(pTable);
+    RT_NOREF(pTable);
     uint64_t u64Timestamp;
     uint32_t u32Size;
     if (   g_AsyncNotification.callHandle.rc != VINF_SUCCESS

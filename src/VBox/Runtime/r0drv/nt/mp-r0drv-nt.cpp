@@ -1306,7 +1306,7 @@ static int rtMpCallUsingBroadcastIpi(PFNRTMPWORKER pfnWorker, void *pvUser1, voi
 static VOID rtmpNtDPCWrapper(IN PKDPC Dpc, IN PVOID DeferredContext, IN PVOID SystemArgument1, IN PVOID SystemArgument2)
 {
     PRTMPARGS pArgs = (PRTMPARGS)DeferredContext;
-    RT_NOREF3(Dpc, SystemArgument1, SystemArgument2);
+    RT_NOREF(Dpc, SystemArgument1, SystemArgument2);
 
     ASMAtomicIncU32(&pArgs->cHits);
     pArgs->pfnWorker(RTMpCpuId(), pArgs->pvUser1, pArgs->pvUser2);
@@ -1631,7 +1631,7 @@ static VOID rtMpNtOnSpecificDpcWrapper(IN PKDPC Dpc, IN PVOID DeferredContext,
                                        IN PVOID SystemArgument1, IN PVOID SystemArgument2)
 {
     PRTMPNTONSPECIFICARGS pArgs = (PRTMPNTONSPECIFICARGS)DeferredContext;
-    RT_NOREF3(Dpc, SystemArgument1, SystemArgument2);
+    RT_NOREF(Dpc, SystemArgument1, SystemArgument2);
 
     ASMAtomicWriteBool(&pArgs->fExecuting, true);
 

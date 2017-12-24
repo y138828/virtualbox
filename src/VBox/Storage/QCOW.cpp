@@ -1257,7 +1257,7 @@ static int qcowCreateImage(PQCOWIMAGE pImage, uint64_t cbSize,
                            PVDINTERFACEPROGRESS pIfProgress,
                            unsigned uPercentStart, unsigned uPercentSpan)
 {
-    RT_NOREF1(pszComment);
+    RT_NOREF(pszComment);
     int rc;
     int32_t fOpen;
 
@@ -1352,7 +1352,7 @@ static int qcowCreateImage(PQCOWIMAGE pImage, uint64_t cbSize,
  */
 static int qcowAsyncClusterAllocRollback(PQCOWIMAGE pImage, PVDIOCTX pIoCtx, PQCOWCLUSTERASYNCALLOC pClusterAlloc)
 {
-    RT_NOREF1(pIoCtx);
+    RT_NOREF(pIoCtx);
     int rc = VINF_SUCCESS;
 
     switch (pClusterAlloc->enmAllocState)

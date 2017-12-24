@@ -1136,7 +1136,7 @@ static void intnetR0IfAddrCacheDeleteIt(PINTNETIF pIf, PINTNETADDRCACHE pCache, 
             break;
     }
 #else
-    RT_NOREF2(pIf, pszMsg);
+    RT_NOREF(pIf, pszMsg);
 #endif
 
     pCache->cEntries--;
@@ -1485,7 +1485,7 @@ static void intnetR0IfAddrCacheAddIt(PINTNETIF pIf, INTNETADDRTYPE enmAddrType, 
             break;
     }
 #else
-    RT_NOREF1(pszMsg);
+    RT_NOREF(pszMsg);
 #endif
     pCache->cEntries++;
     Assert(pCache->cEntries <= pCache->cEntriesAlloc);

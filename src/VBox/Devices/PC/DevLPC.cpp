@@ -87,7 +87,7 @@ typedef struct
 
 static uint32_t rcba_ram_readl(LPCState* s, RTGCPHYS addr)
 {
-    RT_NOREF1(s);
+    RT_NOREF(s);
     Log(("rcba_read at %llx\n", (uint64_t)addr));
     int32_t iIndex = (addr - RCBA_BASE);
     uint32_t value = 0;
@@ -114,7 +114,7 @@ static uint32_t rcba_ram_readl(LPCState* s, RTGCPHYS addr)
 
 static void rcba_ram_writel(LPCState* s, RTGCPHYS addr, uint32_t value)
 {
-    RT_NOREF2(s, value);
+    RT_NOREF(s, value);
     Log(("rcba_write %llx = %#x\n", (uint64_t)addr, value));
     int32_t iIndex = (addr - RCBA_BASE);
 

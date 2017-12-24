@@ -484,7 +484,7 @@ dt_module_lookup_by_name(dtrace_hdl_t *dtp, const char *name)
 dt_module_t *
 dt_module_lookup_by_ctf(dtrace_hdl_t *dtp, ctf_file_t *ctfp)
 {
-	RT_NOREF1(dtp);
+	RT_NOREF(dtp);
 	return (ctfp ? ctf_getspecific(ctfp) : NULL);
 }
 
@@ -526,7 +526,7 @@ dt_module_load_sect(dtrace_hdl_t *dtp, dt_module_t *dmp, ctf_sect_t *ctsp)
 	    dmp->dm_name, ctsp->cts_name, (ulong_t)ctsp->cts_size);
 
 #else  /* VBOX */
-	RT_NOREF3(dtp, dmp, ctsp);
+	RT_NOREF(dtp, dmp, ctsp);
 #endif /* VBOX */
 	return (0);
 }
@@ -695,7 +695,7 @@ err:
 void
 dt_module_unload(dtrace_hdl_t *dtp, dt_module_t *dmp)
 {
-	RT_NOREF1(dtp);
+	RT_NOREF(dtp);
 	ctf_close(dmp->dm_ctfp);
 	dmp->dm_ctfp = NULL;
 

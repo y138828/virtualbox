@@ -83,7 +83,7 @@ static void tstVfsIoFromStandardHandle(RTTEST hTest, RTHANDLESTD enmHandle)
 
 int main(int argc, char **argv)
 {
-    RT_NOREF2(argc, argv);
+    RT_NOREF(argc, argv);
 
     /*
      * Initialize IPRT and create the test.

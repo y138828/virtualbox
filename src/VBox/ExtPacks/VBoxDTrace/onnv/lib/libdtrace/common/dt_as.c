@@ -82,7 +82,7 @@ static int
 dt_countvar(dt_idhash_t *dhp, dt_ident_t *idp, void *data)
 {
 	size_t *np = data;
-	RT_NOREF1(dhp);
+	RT_NOREF(dhp);
 
 	if (idp->di_flags & (DT_IDFLG_DIFR | DT_IDFLG_DIFW))
 		(*np)++; /* include variable in vartab */
@@ -98,7 +98,7 @@ dt_copyvar(dt_idhash_t *dhp, dt_ident_t *idp, void *data)
 	dtrace_difv_t *dvp;
 	ssize_t stroff;
 	dt_node_t dn;
-	RT_NOREF1(dhp);
+	RT_NOREF(dhp);
 
 	if (!(idp->di_flags & (DT_IDFLG_DIFR | DT_IDFLG_DIFW)))
 		return (0); /* omit variable from vartab */

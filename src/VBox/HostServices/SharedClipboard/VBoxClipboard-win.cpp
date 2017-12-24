@@ -820,7 +820,7 @@ int vboxClipboardSync (VBOXCLIPBOARDCLIENTDATA *pClient)
 
 void vboxClipboardDisconnect (VBOXCLIPBOARDCLIENTDATA *pClient)
 {
-    RT_NOREF1(pClient);
+    RT_NOREF(pClient);
     Log(("vboxClipboardDisconnect\n"));
 
     g_ctx.pClient = NULL;

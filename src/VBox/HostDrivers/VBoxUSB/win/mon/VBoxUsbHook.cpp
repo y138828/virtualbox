@@ -154,7 +154,7 @@ NTSTATUS VBoxUsbHookRequestPassDownHookSkip(PVBOXUSBHOOK_ENTRY pHook, PDEVICE_OB
 NTSTATUS VBoxUsbHookRequestMoreProcessingRequired(PVBOXUSBHOOK_ENTRY pHook, PDEVICE_OBJECT pDevObj, PIRP pIrp,
                                                   PVBOXUSBHOOK_REQUEST pRequest)
 {
-    RT_NOREF3(pHook, pDevObj, pIrp);
+    RT_NOREF(pHook, pDevObj, pIrp);
     Assert(!pRequest->bCompletionStopped);
     pRequest->bCompletionStopped = TRUE;
     return STATUS_MORE_PROCESSING_REQUIRED;

@@ -236,7 +236,7 @@ static int mmcReadTOCNormal(PVSCSILUNINT pVScsiLun, PVSCSIREQINT pVScsiReq, uint
 /* Fabricate session information. */
 static int mmcReadTOCMulti(PVSCSILUNINT pVScsiLun, PVSCSIREQINT pVScsiReq, uint16_t cbMaxTransfer, bool fMSF)
 {
-    RT_NOREF1(cbMaxTransfer);
+    RT_NOREF(cbMaxTransfer);
     uint8_t         aReply[32];
     uint8_t         *pbBuf = aReply;
 

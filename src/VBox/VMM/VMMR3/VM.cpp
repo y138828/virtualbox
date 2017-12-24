@@ -3288,7 +3288,7 @@ VMMR3DECL(const char *) VMR3GetStateName(VMSTATE enmState)
 static bool vmR3ValidateStateTransition(VMSTATE enmStateOld, VMSTATE enmStateNew)
 {
 #ifndef VBOX_STRICT
-    RT_NOREF2(enmStateOld, enmStateNew);
+    RT_NOREF(enmStateOld, enmStateNew);
 #else
     switch (enmStateOld)
     {

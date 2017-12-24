@@ -1613,7 +1613,7 @@ static int vdIoCtxLockDisk(PVDISK pDisk, PVDIOCTX pIoCtx)
 
 static void vdIoCtxUnlockDisk(PVDISK pDisk, PVDIOCTX pIoCtx, bool fProcessBlockedReqs)
 {
-    RT_NOREF1(pIoCtx);
+    RT_NOREF(pIoCtx);
     LogFlowFunc(("pDisk=%#p pIoCtx=%#p fProcessBlockedReqs=%RTbool\n",
                  pDisk, pIoCtx, fProcessBlockedReqs));
 
@@ -1638,7 +1638,7 @@ static void vdIoCtxUnlockDisk(PVDISK pDisk, PVDIOCTX pIoCtx, bool fProcessBlocke
 static int vdDiskReadHelper(PVDISK pDisk, PVDIMAGE pImage, PVDIMAGE pImageParentOverride,
                             uint64_t uOffset, size_t cbRead, PVDIOCTX pIoCtx, size_t *pcbThisRead)
 {
-    RT_NOREF1(pDisk);
+    RT_NOREF(pDisk);
     int rc = VINF_SUCCESS;
     size_t cbThisRead = cbRead;
 

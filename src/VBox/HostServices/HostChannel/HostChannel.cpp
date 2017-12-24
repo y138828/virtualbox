@@ -228,7 +228,7 @@ static int vhcHandleCreate(VBOXHOSTCHCLIENT *pClient, uint32_t *pu32Handle)
 
 static void vhcInstanceDestroy(VBOXHOSTCHINSTANCE *pInstance)
 {
-    RT_NOREF1(pInstance);
+    RT_NOREF(pInstance);
     HOSTCHLOG(("HostChannel: destroy %p\n", pInstance));
 }
 
@@ -968,7 +968,7 @@ int vboxHostChannelRegister(const char *pszName,
                             const VBOXHOSTCHANNELINTERFACE *pInterface,
                             uint32_t cbInterface)
 {
-    RT_NOREF1(cbInterface);
+    RT_NOREF(cbInterface);
     int rc = VINF_SUCCESS;
 
     VBOXHOSTCHCTX *pCtx = &g_ctx;

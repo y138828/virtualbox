@@ -799,7 +799,7 @@ dt_alloc(dtrace_hdl_t *dtp, size_t size)
 void
 dt_free(dtrace_hdl_t *dtp, void *data)
 {
-	RT_NOREF1(dtp);
+	RT_NOREF(dtp);
 	assert(dtp != NULL); /* ensure sane use of this interface */
 	free(data);
 }
@@ -1020,7 +1020,7 @@ dtrace_uaddr2str(dtrace_hdl_t *dtp, pid_t pid,
 	dt_proc_release(dtp, P);
 #else
 	char c[32];
-	RT_NOREF2(dtp, pid);
+	RT_NOREF(dtp, pid);
 	RTStrPrintf(c, sizeof (c), "0x%llx", addr);
 #endif
 

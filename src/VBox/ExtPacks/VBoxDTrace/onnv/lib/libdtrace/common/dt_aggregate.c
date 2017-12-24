@@ -91,7 +91,7 @@ dt_aggregate_countcmp(int64_t *lhs, int64_t *rhs)
 static void
 dt_aggregate_min(int64_t *existing, int64_t *new, size_t size)
 {
-	RT_NOREF1(size);
+	RT_NOREF(size);
 	if (*new < *existing)
 		*existing = *new;
 }
@@ -100,7 +100,7 @@ dt_aggregate_min(int64_t *existing, int64_t *new, size_t size)
 static void
 dt_aggregate_max(int64_t *existing, int64_t *new, size_t size)
 {
-	RT_NOREF1(size);
+	RT_NOREF(size);
 	if (*new > *existing)
 		*existing = *new;
 }
@@ -142,7 +142,7 @@ dt_aggregate_lquantize(int64_t *existing, int64_t *new, size_t size)
 	int64_t arg = *existing++;
 	uint16_t levels = DTRACE_LQUANTIZE_LEVELS(arg);
 	int i;
-	RT_NOREF1(size);
+	RT_NOREF(size);
 
 	for (i = 0; i <= levels + 1; i++)
 		existing[i] = existing[i] + new[i + 1];
@@ -281,7 +281,7 @@ dt_aggregate_usym(dtrace_hdl_t *dtp, uint64_t *data)
 	dt_proc_unlock(dtp, P);
 	dt_proc_release(dtp, P);
 #else
-	RT_NOREF2(dtp, data);
+	RT_NOREF(dtp, data);
 #endif
 }
 
@@ -308,7 +308,7 @@ dt_aggregate_umod(dtrace_hdl_t *dtp, uint64_t *data)
 	dt_proc_unlock(dtp, P);
 	dt_proc_release(dtp, P);
 #else
-	RT_NOREF2(dtp, data);
+	RT_NOREF(dtp, data);
 #endif
 }
 

@@ -652,7 +652,7 @@ done:
 static int
 dt_decl_hasmembers(const char *name, int value, void *private)
 {
-	RT_NOREF3(name, value, private);
+	RT_NOREF(name, value, private);
 	return (1); /* abort search and return true if a member exists */
 }
 

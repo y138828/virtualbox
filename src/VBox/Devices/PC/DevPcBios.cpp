@@ -570,7 +570,7 @@ static void pcbiosCmosInitHardDisk(PPDMDEVINS pDevIns, int offType, int offInfo,
  */
 static int setLogicalDiskGeometry(PPDMIBASE pBase, PPDMIMEDIA pHardDisk, PPDMMEDIAGEOMETRY pLCHSGeometry)
 {
-    RT_NOREF1(pBase);
+    RT_NOREF(pBase);
 
     PDMMEDIAGEOMETRY LCHSGeometry;
     int rc = pHardDisk->pfnBiosGetLCHSGeometry(pHardDisk, &LCHSGeometry);

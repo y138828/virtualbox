@@ -208,7 +208,7 @@ dtrace_faultstr(dtrace_hdl_t *dtp, int fault)
 		{ DTRACEFLT_LIBRARY,	"library-level fault" },
 		{ 0,			NULL }
 	};
-	RT_NOREF1(dtp);
+	RT_NOREF(dtp);
 
 	for (i = 0; faults[i].str != NULL; i++) {
 		if (faults[i].code == fault)

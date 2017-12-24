@@ -383,7 +383,7 @@ VBGLR3DECL(void) VbglR3Term(void)
  */
 int vbglR3DoIOCtlRaw(uintptr_t uFunction, PVBGLREQHDR pHdr, size_t cbReq)
 {
-    Assert(cbReq == RT_MAX(pHdr->cbIn, pHdr->cbOut)); RT_NOREF1(cbReq);
+    Assert(cbReq == RT_MAX(pHdr->cbIn, pHdr->cbOut)); RT_NOREF(cbReq);
     Assert(pHdr->cbOut != 0);
 
 #if defined(RT_OS_WINDOWS)

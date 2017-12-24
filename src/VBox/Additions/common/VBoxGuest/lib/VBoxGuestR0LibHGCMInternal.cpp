@@ -483,9 +483,9 @@ static void vbglR0HGCMInternalInitCall(VMMDevHGCMCall *pHGCMCall, PCVBGLIOCHGCMC
     uint32_t    offExtra = (uint32_t)((uintptr_t)(pDstParm + cParms) - (uintptr_t)pHGCMCall);
     uint32_t    iLockBuf = 0;
     uint32_t    iParm;
-    RT_NOREF1(cbCallInfo);
+    RT_NOREF(cbCallInfo);
 #ifndef USE_BOUNCE_BUFFERS
-    RT_NOREF1(fIsUser);
+    RT_NOREF(fIsUser);
 #endif
 
     /*
@@ -765,9 +765,9 @@ static int vbglR0HGCMInternalCopyBackResult(PVBGLIOCHGCMCALL pCallInfo, VMMDevHG
     uint32_t    iLockBuf = 0;
 #endif
     uint32_t    iParm;
-    RT_NOREF1(pParmInfo);
+    RT_NOREF(pParmInfo);
 #ifndef USE_BOUNCE_BUFFERS
-    RT_NOREF1(fIsUser);
+    RT_NOREF(fIsUser);
 #endif
 
     /*

@@ -239,7 +239,7 @@ static int MyDisasmBlock(const char *argv0, DISCPUMODE enmCpuMode, uint64_t uAdd
                          uint64_t uHighlightAddr, uint8_t *pbFile, size_t cbFile,
                          ASMSTYLE enmStyle, bool fListing, UNDEFOPHANDLING enmUndefOp)
 {
-    RT_NOREF1(fListing);
+    RT_NOREF(fListing);
 
     /*
      * Initialize the CPU context.

@@ -1203,7 +1203,7 @@ static void vboxUsbDevToUserInfo(PVBOXUSBFLTCTX pContext, PVBOXUSBFLT_DEVICE pDe
     }
     pDevInfo->fHighSpeed = pDevice->fHighSpeed;
 #else
-    RT_NOREF3(pContext, pDevice, pDevInfo);
+    RT_NOREF(pContext, pDevice, pDevInfo);
 #endif
 }
 
@@ -1328,7 +1328,7 @@ NTSTATUS VBoxUsbFltPdoAdd(PDEVICE_OBJECT pPdo, BOOLEAN *pbFiltered)
 
 NTSTATUS VBoxUsbFltPdoAddCompleted(PDEVICE_OBJECT pPdo)
 {
-    RT_NOREF1(pPdo);
+    RT_NOREF(pPdo);
     VBOXUSBFLT_LOCK_ACQUIRE();
     vboxUsbFltSignalChangeLocked();
     VBOXUSBFLT_LOCK_RELEASE();

@@ -316,7 +316,7 @@ int usbMonitorTerm()
 int __cdecl main(int argc, char **argv)
 {
     int rc;
-    RT_NOREF2(argc, argv);
+    RT_NOREF(argc, argv);
 
     printf("USB test\n");
 

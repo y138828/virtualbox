@@ -241,7 +241,7 @@ static int rawCreateImage(PRAWIMAGE pImage, uint64_t cbSize,
                           PVDINTERFACEPROGRESS pIfProgress,
                           unsigned uPercentStart, unsigned uPercentSpan)
 {
-    RT_NOREF1(pszComment);
+    RT_NOREF(pszComment);
     int rc = VINF_SUCCESS;
 
     pImage->fCreate      = true;

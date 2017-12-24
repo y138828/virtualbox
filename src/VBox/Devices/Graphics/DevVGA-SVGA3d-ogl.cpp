@@ -2170,7 +2170,7 @@ int vmsvga3dBackSurfaceStretchBlt(PVGASTATE pThis, PVMSVGA3DSTATE pState,
                                   SVGA3dStretchBltMode enmMode, PVMSVGA3DCONTEXT pContext)
 {
     RT_NOREF(pThis);
-    RT_NOREF2(uDstFace, uSrcFace); /// @todo
+    RT_NOREF(uDstFace, uSrcFace); /// @todo
 
     /* Activate the read and draw framebuffer objects. */
     pState->ext.glBindFramebuffer(GL_READ_FRAMEBUFFER, pContext->idReadFramebuffer);

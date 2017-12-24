@@ -357,7 +357,7 @@ static int rtR0MemObjNativeAllocContEx(PPRTR0MEMOBJINTERNAL ppMem, size_t cb, bo
                                        size_t uAlignment)
 {
     AssertMsgReturn(cb <= _1G, ("%#x\n", cb), VERR_OUT_OF_RANGE); /* for safe size_t -> ULONG */
-    RT_NOREF1(fExecutable);
+    RT_NOREF(fExecutable);
 
     /*
      * Allocate the memory and create an MDL for it.

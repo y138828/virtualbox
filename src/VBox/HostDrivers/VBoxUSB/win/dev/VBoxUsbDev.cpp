@@ -117,7 +117,7 @@ static NTSTATUS vboxUsbDdiAddDevice(PDRIVER_OBJECT pDriverObject,
 
 static VOID vboxUsbDdiUnload(PDRIVER_OBJECT pDriverObject)
 {
-    RT_NOREF1(pDriverObject);
+    RT_NOREF(pDriverObject);
     LogRel(("VBoxUsb::DriverUnload. Built Date (%s) Time (%s)\n", __DATE__, __TIME__));
     VBoxDrvToolStrFree(&g_VBoxUsbGlobals.RegPath);
 
@@ -212,7 +212,7 @@ static NTSTATUS vboxUsbDispatchDeviceControl(IN PDEVICE_OBJECT pDeviceObject, IN
 
 static NTSTATUS vboxUsbDispatchCleanup(IN PDEVICE_OBJECT pDeviceObject, IN PIRP pIrp)
 {
-    RT_NOREF1(pDeviceObject);
+    RT_NOREF(pDeviceObject);
     return VBoxDrvToolIoComplete(pIrp, STATUS_SUCCESS, 0);
 }
 

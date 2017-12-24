@@ -37,7 +37,7 @@ int DnDPathSanitizeFilename(char *pszPath, size_t cbPath)
 {
     int rc = VINF_SUCCESS;
 #ifdef RT_OS_WINDOWS
-    RT_NOREF1(cbPath);
+    RT_NOREF(cbPath);
     /* Replace out characters not allowed on Windows platforms, put in by RTTimeSpecToString(). */
     /** @todo Use something like RTPathSanitize() if available later some time. */
     static const RTUNICP s_uszValidRangePairs[] =
@@ -56,7 +56,7 @@ int DnDPathSanitizeFilename(char *pszPath, size_t cbPath)
     if (cReplaced < 0)
         rc = VERR_INVALID_UTF8_ENCODING;
 #else
-    RT_NOREF2(pszPath, cbPath);
+    RT_NOREF(pszPath, cbPath);
 #endif
     return rc;
 }
@@ -64,7 +64,7 @@ int DnDPathSanitizeFilename(char *pszPath, size_t cbPath)
 int DnDPathSanitize(char *pszPath, size_t cbPath)
 {
     /** @todo */
-    RT_NOREF2(pszPath, cbPath);
+    RT_NOREF(pszPath, cbPath);
     return VINF_SUCCESS;
 }
 

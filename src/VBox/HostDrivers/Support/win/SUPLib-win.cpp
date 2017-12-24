@@ -260,7 +260,7 @@ int suplibOsInit(PSUPLIBDATA pThis, bool fPreInited, bool fUnrestricted, SUPINIT
                 pErrInfo->pszMsg[0] = '\0';
         }
 #else
-        RT_NOREF1(penmWhat);
+        RT_NOREF(penmWhat);
 #endif
         return rc;
     }
@@ -664,7 +664,7 @@ int suplibOsTerm(PSUPLIBDATA pThis)
 
 int suplibOsIOCtl(PSUPLIBDATA pThis, uintptr_t uFunction, void *pvReq, size_t cbReq)
 {
-    RT_NOREF1(cbReq);
+    RT_NOREF(cbReq);
 
     /*
      * Issue the device I/O control.

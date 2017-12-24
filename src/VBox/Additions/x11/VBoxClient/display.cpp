@@ -251,7 +251,7 @@ static int init(struct VBCLSERVICE **ppInterface)
 
 static int run(struct VBCLSERVICE **ppInterface, bool fDaemonised)
 {
-    RT_NOREF1(fDaemonised);
+    RT_NOREF(fDaemonised);
     struct DISPLAYSTATE *pSelf = getStateFromInterface(ppInterface);
 
     if (!pSelf->mfInit)

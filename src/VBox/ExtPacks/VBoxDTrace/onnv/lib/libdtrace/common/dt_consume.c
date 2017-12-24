@@ -701,7 +701,7 @@ dt_print_average(dtrace_hdl_t *dtp, FILE *fp, caddr_t addr,
 {
 	/* LINTED - alignment */
 	int64_t *data = (int64_t *)addr;
-	RT_NOREF1(size);
+	RT_NOREF(size);
 
 	return (dt_printf(dtp, fp, " %16lld", data[0] ?
 	    (long long)(data[1] / (int64_t)normal / data[0]) : 0));
@@ -714,7 +714,7 @@ dt_print_stddev(dtrace_hdl_t *dtp, FILE *fp, caddr_t addr,
 {
 	/* LINTED - alignment */
 	uint64_t *data = (uint64_t *)addr;
-	RT_NOREF1(size);
+	RT_NOREF(size);
 
 	return (dt_printf(dtp, fp, " %16llu", data[0] ?
 	    (unsigned long long) dt_stddev(data, normal) : 0));
@@ -1093,7 +1093,7 @@ dt_print_usym(dtrace_hdl_t *dtp, FILE *fp, caddr_t addr, dtrace_actkind_t act)
 		}
 	}
 #else
-	RT_NOREF1(act);
+	RT_NOREF(act);
 #endif
 
 	do {

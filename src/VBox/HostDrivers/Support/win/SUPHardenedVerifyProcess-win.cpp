@@ -358,7 +358,7 @@ static NTSTATUS supHardNtVpReadMem(HANDLE hProcess, uintptr_t uPtr, void *pvBuf,
 {
 #ifdef IN_RING0
     /* ASSUMES hProcess is the current process. */
-    RT_NOREF1(hProcess);
+    RT_NOREF(hProcess);
     /** @todo use MmCopyVirtualMemory where available! */
     int rc = RTR0MemUserCopyFrom(pvBuf, uPtr, cbRead);
     if (RT_SUCCESS(rc))
@@ -412,7 +412,7 @@ static int supHardNtVpFileMemCompareSection(PSUPHNTVPSTATE pThis, PSUPHNTVPIMAGE
                                             uint32_t fCorrectProtection)
 {
 #ifndef IN_RING3
-    RT_NOREF1(fCorrectProtection);
+    RT_NOREF(fCorrectProtection);
 #endif
     AssertCompileAdjacentMembers(SUPHNTVPSTATE, abMemory, abFile); /* Use both the memory and file buffers here. Parfait might hate me for this... */
     uint32_t  const cbMemory = sizeof(pThis->abMemory) + sizeof(pThis->abFile);

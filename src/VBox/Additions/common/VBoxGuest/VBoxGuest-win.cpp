@@ -950,7 +950,7 @@ static NTSTATUS vgdrvNtNt5PlusAddDevice(PDRIVER_OBJECT pDrvObj, PDEVICE_OBJECT p
  */
 static NTSTATUS vgdrvNt5PlusPnpIrpComplete(PDEVICE_OBJECT pDevObj, PIRP pIrp, PKEVENT pEvent)
 {
-    RT_NOREF2(pDevObj, pIrp);
+    RT_NOREF(pDevObj, pIrp);
     KeSetEvent(pEvent, 0, FALSE);
     return STATUS_MORE_PROCESSING_REQUIRED;
 }
@@ -1349,7 +1349,7 @@ static NTSTATUS vgdrvNtNt5PlusPnP(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 static NTSTATUS vgdrvNtNt5PlusPowerComplete(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp, IN PVOID pContext)
 {
 #ifdef VBOX_STRICT
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
     PVBOXGUESTDEVEXTWIN pDevExt = (PVBOXGUESTDEVEXTWIN)pContext;
     PIO_STACK_LOCATION  pIrpSp  = IoGetCurrentIrpStackLocation(pIrp);
 
@@ -1382,7 +1382,7 @@ static NTSTATUS vgdrvNtNt5PlusPowerComplete(IN PDEVICE_OBJECT pDevObj, IN PIRP p
         }
     }
 #else
-    RT_NOREF3(pDevObj, pIrp, pContext);
+    RT_NOREF(pDevObj, pIrp, pContext);
 #endif
 
     return STATUS_SUCCESS;
@@ -1615,7 +1615,7 @@ static void vgdrvNtUnload(PDRIVER_OBJECT pDrvObj)
      * On a PnP driver this routine will be called after IRP_MN_REMOVE_DEVICE
      * where we already did the cleanup, so don't do anything here (yet).
      */
-    RT_NOREF1(pDrvObj);
+    RT_NOREF(pDrvObj);
 #endif /* !TARGET_NT4 */
 
     VGDrvCommonDestroyLoggers();
@@ -1931,7 +1931,7 @@ static NTSTATUS vgdrvNtShutdown(PDEVICE_OBJECT pDevObj, PIRP pIrp)
  */
 static NTSTATUS vgdrvNtNotSupportedStub(PDEVICE_OBJECT pDevObj, PIRP pIrp)
 {
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
     LogFlowFuncEnter();
 
     pIrp->IoStatus.Information = 0;
@@ -1972,7 +1972,7 @@ int VGDrvNativeSetMouseNotifyCallback(PVBOXGUESTDEVEXT pDevExt, PVBGLIOCSETMOUSE
  */
 static void NTAPI vgdrvNtDpcHandler(PKDPC pDPC, PDEVICE_OBJECT pDevObj, PIRP pIrp, PVOID pContext)
 {
-    RT_NOREF3(pDPC, pIrp, pContext);
+    RT_NOREF(pDPC, pIrp, pContext);
     PVBOXGUESTDEVEXTWIN pDevExt = (PVBOXGUESTDEVEXTWIN)pDevObj->DeviceExtension;
     Log3Func(("pDevExt=0x%p\n", pDevExt));
 
@@ -2005,7 +2005,7 @@ static void NTAPI vgdrvNtDpcHandler(PKDPC pDPC, PDEVICE_OBJECT pDevObj, PIRP pIr
  */
 static BOOLEAN NTAPI vgdrvNtIsrHandler(PKINTERRUPT pInterrupt, PVOID pServiceContext)
 {
-    RT_NOREF1(pInterrupt);
+    RT_NOREF(pInterrupt);
     PVBOXGUESTDEVEXTWIN pDevExt = (PVBOXGUESTDEVEXTWIN)pServiceContext;
     if (pDevExt == NULL)
         return FALSE;

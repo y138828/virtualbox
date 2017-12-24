@@ -67,7 +67,7 @@ static VOID vboxUsbPwrIoDeviceCompletion(IN PDEVICE_OBJECT pDeviceObject,
                                          IN PVOID pvContext,
                                          IN PIO_STATUS_BLOCK pIoStatus)
 {
-    RT_NOREF3(pDeviceObject, MinorFunction, PowerState);
+    RT_NOREF(pDeviceObject, MinorFunction, PowerState);
     PVBOXUSB_PWRDEV_CTX pDevCtx = (PVBOXUSB_PWRDEV_CTX)pvContext;
     PVBOXUSBDEV_EXT pDevExt = pDevCtx->pDevExt;
     PIRP pIrp = pDevCtx->pIrp;
@@ -117,7 +117,7 @@ static NTSTATUS vboxUsbPwrIoRequestDev(IN PVBOXUSBDEV_EXT pDevExt, IN PIRP pIrp)
 
 static NTSTATUS vboxUsbPwrIoPostSysCompletion(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp, IN PVOID pvContext)
 {
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
     PVBOXUSBDEV_EXT pDevExt = (PVBOXUSBDEV_EXT)pvContext;
     NTSTATUS Status = pIrp->IoStatus.Status;
     Assert(Status == STATUS_SUCCESS);
@@ -162,7 +162,7 @@ static NTSTATUS vboxUsbPwrQueryPowerSys(IN PVBOXUSBDEV_EXT pDevExt, IN PIRP pIrp
 
 static NTSTATUS vboxUsbPwrIoPostDevCompletion(IN PDEVICE_OBJECT pDevObj, IN PIRP pIrp, IN PVOID pvContext)
 {
-    RT_NOREF1(pDevObj);
+    RT_NOREF(pDevObj);
     PVBOXUSBDEV_EXT pDevExt = (PVBOXUSBDEV_EXT)pvContext;
 
     if (pIrp->PendingReturned)
